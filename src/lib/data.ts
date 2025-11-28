@@ -556,7 +556,7 @@ export const themeParks: ThemePark[] = [
     name: "Hersheypark",
     location: "Hershey, PA",
     description: "The Sweetest Place on Earth! 14 roller coasters, water attractions, and chocolate-themed fun in the heart of Pennsylvania Dutch Country.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Hersheypark_in_2021.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.5,
@@ -601,7 +601,7 @@ export const themeParks: ThemePark[] = [
     name: "Silver Dollar City",
     location: "Branson, MO",
     description: "1880s-themed park in the Ozark Mountains! World-class coasters, master craftsmen, and the friendliest atmosphere in the theme park industry.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/86/Dollywood_from_the_Dollywood_Express_-_16.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Silver_Dollar_City.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.9,
@@ -646,7 +646,7 @@ export const themeParks: ThemePark[] = [
     name: "Canada's Wonderland",
     location: "Vaughan, Ontario",
     description: "Canada's premier theme park! 17 world-class roller coasters including Yukon Striker, the world's fastest, tallest, and longest dive coaster.",
-    image: "https://images.unsplash.com/photo-1572819620274-d5c0f8e13339?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Canada%27s_Wonderland.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
@@ -691,7 +691,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Great Adventure",
     location: "Jackson, NJ",
     description: "Home of the legendary Kingda Ka! 14 intense roller coasters including the world's tallest and fastest, plus a drive-through safari.",
-    image: "https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Six_Flags_Great_Adventure_view.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.0,
@@ -736,7 +736,7 @@ export const themeParks: ThemePark[] = [
     name: "Carowinds",
     location: "Charlotte, NC",
     description: "Straddling the North Carolina-South Carolina border! 14 thrilling coasters including Fury 325, one of the world's best giga coasters.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Carowinds.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.2,
@@ -781,7 +781,7 @@ export const themeParks: ThemePark[] = [
     name: "Busch Gardens Williamsburg",
     location: "Williamsburg, VA",
     description: "The world's most beautiful theme park! European-themed villages, award-winning landscaping, and world-class roller coasters in Virginia.",
-    image: "https://images.unsplash.com/photo-1606158890793-2e0ea010dc86?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Busch_Gardens_Williamsburg_Main_Gate.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -826,7 +826,7 @@ export const themeParks: ThemePark[] = [
     name: "Elitch Gardens",
     location: "Denver, CO",
     description: "Denver's only world-class combination theme and water park! A Colorado icon for over 130 years, offering 6 thrilling coasters and 40+ attractions with stunning mountain and city views.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Busch_Gardens_Tampa_Bay.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Elitch_gardens_from_Denver.jpg",
     rating: 5.0,
     categoryRatings: {
       food: 5.0,
@@ -880,7 +880,7 @@ export const themeParks: ThemePark[] = [
     name: "Xplor Park",
     location: "Riviera Maya, Mexico",
     description: "Thrilling adventure park in the jungle! Experience ziplines, amphibious vehicles, underground rivers, and rafting through stalactite-filled caves in the heart of the Mayan Riviera.",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/97/Vista_Parque_Xplor_desde_torre_esc%C3%A9nica.JPG",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
@@ -925,7 +925,7 @@ export const themeParks: ThemePark[] = [
     name: "Xel-Ha Park",
     location: "Solidaridad, Mexico",
     description: "Natural aquatic paradise! Snorkel in crystal-clear waters, explore cenotes, and float down the lazy river in this stunning eco-park on the Caribbean coast.",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/53/Xel-H%C3%A1_Park%2C_Carretera_Chetumal_Puerto_Ju%C3%A1rez_(48698).jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.6,
@@ -970,7 +970,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Diego",
     location: "San Diego, CA",
     description: "Marine life meets thrilling rides! Experience incredible animal encounters, world-class shows, and exciting roller coasters overlooking Mission Bay.",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/b9/SeaWorld%2C_San_Diego.JPG",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -1015,7 +1015,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland California",
     location: "Carlsbad, CA",
     description: "Everything is awesome! Perfect for families with young children, featuring LEGO-themed rides, building workshops, and incredible LEGO sculptures.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Legoland_California.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1060,7 +1060,7 @@ export const themeParks: ThemePark[] = [
     name: "California's Great America",
     location: "Santa Clara, CA",
     description: "Silicon Valley's premier theme park! Features 7 thrilling coasters including Gold Striker and Flight Deck, plus Boomerang Bay water park.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/California%27s_Great_America_(14320203016).jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
