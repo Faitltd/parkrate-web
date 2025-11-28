@@ -2545,7 +2545,7 @@ export const themeParks: ThemePark[] = [
     name: "Mt. Olympus Water & Theme Park",
     location: "Wisconsin Dells, WI",
     description: "Wisconsin Dells' largest park! Unique combination of indoor and outdoor parks with 7 coasters and massive water attractions.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Mt._Olympus_Theme_Park_entrance.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 3.9,
@@ -2590,7 +2590,7 @@ export const themeParks: ThemePark[] = [
     name: "Canobie Lake Park",
     location: "Salem, NH",
     description: "Historic New England park since 1902! Features 5 coasters and classic rides on the shores of Canobie Lake.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Canobie_Lake_Park_-_panoramio.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2635,7 +2635,7 @@ export const themeParks: ThemePark[] = [
     name: "Playland Vancouver",
     location: "Vancouver, BC",
     description: "Vancouver's historic amusement park! Features 6 coasters including the classic Wooden Coaster from 1958.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Playland-entrance.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2680,7 +2680,7 @@ export const themeParks: ThemePark[] = [
     name: "Galaxyland",
     location: "Edmonton, Alberta",
     description: "World's largest indoor amusement park! Features 5 coasters including Mindbender, all indoors at West Edmonton Mall.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/WEM_Galaxyland_MindBender_Galaxy_Orbitter.JPG",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2725,7 +2725,7 @@ export const themeParks: ThemePark[] = [
     name: "Calaway Park",
     location: "Calgary, Alberta",
     description: "Western Canada's largest outdoor family amusement park! Features 2 coasters and over 30 rides near the Rocky Mountains.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Calaway_Park.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 4.0,
@@ -2770,7 +2770,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Kissimmee",
     location: "Kissimmee, FL",
     description: "Orlando's second Fun Spot location! Features 4 coasters including Mine Blower wooden coaster and unique SkyCoaster.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Kissimmee_entrance.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
