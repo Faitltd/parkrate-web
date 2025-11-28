@@ -2140,7 +2140,7 @@ export const themeParks: ThemePark[] = [
     name: "Worlds of Fun",
     location: "Kansas City, MO",
     description: "Kansas City's premier theme park! Features 7 coasters and Oceans of Fun water park with an around-the-world theme.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Timber_Wolf_Worlds_Of_Fun.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2185,7 +2185,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Antonio",
     location: "San Antonio, TX",
     description: "Texas's premier marine life park! Features incredible animal shows, thrilling coasters, and one of the world's largest marine life parks.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/SeaWorld-SanAntonio-2826.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2230,7 +2230,7 @@ export const themeParks: ThemePark[] = [
     name: "Dolly's Splash Country",
     location: "Pigeon Forge, TN",
     description: "Dolly Parton's water park! 35 acres of water fun in the Smoky Mountains with slides, wave pools, and Southern hospitality.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dollywood%27s_Splash_Country_entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -2275,7 +2275,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Darien Lake",
     location: "Darien, NY",
     description: "Upstate New York's premier park! Features 7 coasters, water park, and on-site camping between Buffalo and Rochester.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tantrum_(roller_coaster).jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2320,7 +2320,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland New York",
     location: "Goshen, NY",
     description: "The newest LEGOLAND! Opened in 2021, featuring 7 themed lands and state-of-the-art LEGO attractions in the Hudson Valley.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_New_York_entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2365,7 +2365,7 @@ export const themeParks: ThemePark[] = [
     name: "Kentucky Kingdom",
     location: "Louisville, KY",
     description: "Louisville's urban theme park! Features 7 coasters and Hurricane Bay water park, reopened and revitalized in 2014.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/T3_(Kentucky_Kingdom)_1.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2410,7 +2410,7 @@ export const themeParks: ThemePark[] = [
     name: "Dorney Park",
     location: "Allentown, PA",
     description: "Pennsylvania's outdoor summer fun destination! Features 8 coasters and Wildwater Kingdom water park near the Lehigh Valley.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dorney_Park_entrance_sign.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2455,7 +2455,7 @@ export const themeParks: ThemePark[] = [
     name: "Sesame Place Philadelphia",
     location: "Langhorne, PA",
     description: "The only theme park in the US based on Sesame Street! Perfect for preschoolers with character meet-and-greets and gentle rides.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sesame_Place_(54062957549).jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.1,
@@ -2500,7 +2500,7 @@ export const themeParks: ThemePark[] = [
     name: "Dutch Wonderland",
     location: "Lancaster, PA",
     description: "A Kingdom for Kids in Pennsylvania Dutch Country! Family-friendly park with 3 coasters and attractions perfect for children.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dutch_Wonderland_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
