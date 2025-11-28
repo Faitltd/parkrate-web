@@ -17,6 +17,8 @@ export function ParkCard({ park }: ParkCardProps) {
           <img
             src={park.image}
             alt={park.name}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
           />
           <div className="absolute top-3 right-3 z-10">
