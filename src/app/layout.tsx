@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://parkrate.com").replace(/\/$/, "");
+const analyticsDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const baseDescription = "Discover, compare, and review theme parks across North America with ParkRate.";
 
 export const metadata: Metadata = {
@@ -50,6 +51,13 @@ export default function RootLayout({
           crossOrigin="anonymous"
           src="//unpkg.com/same-runtime/dist/index.global.js"
         />
+        {analyticsDomain && (
+          <Script
+            defer
+            data-domain={analyticsDomain}
+            src="https://plausible.io/js/script.js"
+          />
+        )}
       </head>
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>

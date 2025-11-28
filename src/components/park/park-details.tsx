@@ -17,6 +17,8 @@ interface ParkDetailsProps {
   park: ThemePark;
 }
 
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
 export function ParkDetails({ park }: ParkDetailsProps) {
   const {
     actionMessage,
@@ -39,6 +41,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
 
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://parkrate.com").replace(/\/$/, "");
   const canonical = `${siteUrl}/park/${park.id}`;
+  const parsedHours = parseHours(park.hours);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "AmusementPark",
@@ -47,6 +50,8 @@ export function ParkDetails({ park }: ParkDetailsProps) {
     image: park.image,
     url: canonical,
     priceRange: park.priceRange,
+    telephone: park.phone,
+    sameAs: [`https://${park.website}`],
     audience: {
       "@type": "Audience",
       audienceType: park.audienceType,
@@ -55,6 +60,14 @@ export function ParkDetails({ park }: ParkDetailsProps) {
       "@type": "Place",
       name: park.location,
     },
+    openingHoursSpecification: parsedHours
+      ? daysOfWeek.map((day) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: day,
+          opens: parsedHours.opens,
+          closes: parsedHours.closes,
+        }))
+      : undefined,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: park.rating,
@@ -385,3 +398,18 @@ export function ParkDetails({ park }: ParkDetailsProps) {
     </div>
   );
 }
+
+const parseHours = (hours: string) => {
+  const match = hours.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+  if (!match) return null;
+
+  const to24h = (h: string, m: string, meridiem: string) => {
+    let hour = Number(h) % 12;
+    if (meridiem.toUpperCase() === "PM") hour += 12;
+    return `${hour.toString().padStart(2, "0")}:${m}`;
+  };
+
+  const opens = to24h(match[1], match[2], match[3]);
+  const closes = to24h(match[4], match[5], match[6]);
+  return { opens, closes };
+};
