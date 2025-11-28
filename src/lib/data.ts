@@ -7,7 +7,7 @@ export const themeParks: ThemePark[] = [
     name: "Disneyland",
     location: "Anaheim, CA",
     description: "The original Magic Kingdom and the happiest place on Earth. Features 8 iconic roller coasters and timeless Disney magic across multiple themed lands.",
-    image: "https://images.unsplash.com/photo-1566373955253-e5e4e1c97fec?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Sleeping_Beauty_Castle_-_February_2024.png",
     rating: 4.9,
     categoryRatings: {
       food: 4.8,
@@ -61,7 +61,7 @@ export const themeParks: ThemePark[] = [
     name: "Disney California Adventure",
     location: "Anaheim, CA",
     description: "Celebrating the spirit of California with thrilling attractions, world-class entertainment, and unique Disney storytelling. Home to Guardians of the Galaxy and Incredicoaster.",
-    image: "https://images.unsplash.com/photo-1606158890793-2e0ea010dc86?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a2/California_Adventure_July_4.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.9,
@@ -106,7 +106,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Studios Hollywood",
     location: "Universal City, CA",
     description: "The entertainment capital of LA! Experience movie magic with the world-famous Studio Tour and thrilling attractions based on blockbuster films.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/80/Universal_Studios_Hollywood.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.5,
@@ -151,7 +151,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Magic Mountain",
     location: "Valencia, CA",
     description: "The Thrill Capital of the World! Home to 20 world-class roller coasters including the legendary Twisted Colossus and record-breaking X2.",
-    image: "https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Six_Flags_Magic_Mountain_-_49256162901.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 3.8,
@@ -196,7 +196,7 @@ export const themeParks: ThemePark[] = [
     name: "Knott's Berry Farm",
     location: "Buena Park, CA",
     description: "California's first theme park! A perfect blend of Old West charm, family-friendly attractions, and world-class roller coasters including GhostRider.",
-    image: "https://images.unsplash.com/photo-1572819620274-d5c0f8e13339?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Knott%27s_Berry_Farm_-_panoramio.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.6,
@@ -241,7 +241,7 @@ export const themeParks: ThemePark[] = [
     name: "Magic Kingdom",
     location: "Orlando, FL",
     description: "The most magical place on Earth! Walt Disney World's flagship park featuring Cinderella Castle, classic attractions, and unforgettable Disney experiences.",
-    image: "https://images.unsplash.com/photo-1632392672016-1e49e2686bb8?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Cinderella_Castle%2C_Magic_Kingdom_Walt_Disney_World_%282024%29.jpg",
     rating: 4.9,
     categoryRatings: {
       food: 4.7,
@@ -286,7 +286,7 @@ export const themeParks: ThemePark[] = [
     name: "EPCOT",
     location: "Orlando, FL",
     description: "Explore the world and the future! Experience international cuisine, culture, and cutting-edge attractions at Disney's most unique theme park.",
-    image: "https://images.unsplash.com/photo-1582408921715-18e7806365c1?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Epcot.JPG",
     rating: 4.7,
     categoryRatings: {
       food: 5.0,
@@ -331,7 +331,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal's Islands of Adventure",
     location: "Orlando, FL",
     description: "Adventure awaits across legendary islands! Home to The Wizarding World of Harry Potter - Hogsmeade and some of the world's most innovative attractions.",
-    image: "https://images.unsplash.com/photo-1597304032880-7a7cc03d8e7f?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Universal_Islands_of_Adventure%2C_Orlando.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.7,
@@ -376,7 +376,7 @@ export const themeParks: ThemePark[] = [
     name: "Cedar Point",
     location: "Sandusky, OH",
     description: "The Roller Coaster Capital of the World! 18 world-class coasters on a beautiful Lake Erie peninsula. America's premier amusement park.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Cedar_point.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.2,
@@ -421,7 +421,7 @@ export const themeParks: ThemePark[] = [
     name: "Dollywood",
     location: "Pigeon Forge, TN",
     description: "Dolly Parton's mountain paradise! Experience Southern hospitality, award-winning rides, world-class entertainment, and the beauty of the Smoky Mountains.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/86/Dollywood_from_the_Dollywood_Express_-_16.jpg",
     rating: 4.9,
     categoryRatings: {
       food: 4.9,
@@ -511,7 +511,7 @@ export const themeParks: ThemePark[] = [
     name: "Kings Island",
     location: "Mason, OH",
     description: "Ohio's premier amusement park featuring 15 roller coasters including the legendary Beast, Orion, and family-friendly Planet Snoopy.",
-    image: "https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cc/KI_SOB_Layout.JPG",
     rating: 4.6,
     categoryRatings: {
       food: 4.3,
@@ -601,7 +601,7 @@ export const themeParks: ThemePark[] = [
     name: "Silver Dollar City",
     location: "Branson, MO",
     description: "1880s-themed park in the Ozark Mountains! World-class coasters, master craftsmen, and the friendliest atmosphere in the theme park industry.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/86/Dollywood_from_the_Dollywood_Express_-_16.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.9,
@@ -826,7 +826,7 @@ export const themeParks: ThemePark[] = [
     name: "Elitch Gardens",
     location: "Denver, CO",
     description: "Denver's only world-class combination theme and water park! A Colorado icon for over 130 years, offering 6 thrilling coasters and 40+ attractions with stunning mountain and city views.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Busch_Gardens_Tampa_Bay.jpg",
     rating: 5.0,
     categoryRatings: {
       food: 5.0,
@@ -970,7 +970,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Diego",
     location: "San Diego, CA",
     description: "Marine life meets thrilling rides! Experience incredible animal encounters, world-class shows, and exciting roller coasters overlooking Mission Bay.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cc/KI_SOB_Layout.JPG",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
