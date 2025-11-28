@@ -1,34 +1,28 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { loadForUser, addReview, markHelpful, toggleSave, loadParkData } from "@/lib/parkStore";
 import type { Review } from "@/lib/types";
 
 export const runtime = "nodejs";
 
-const getUserId = (req: Request) =>
+const getUserId = (req: NextRequest) =>
   req.headers.get("x-user-id") ||
-  new URL(req.url).searchParams.get("userId") ||
+  req.nextUrl.searchParams.get("userId") ||
   "";
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
-) {
-  const parkId = params.id;
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id: parkId } = await params;
   const data = await loadParkData(parkId);
   if (!data) {
     return NextResponse.json({ error: "Park not found" }, { status: 404 });
   }
 
-  const userId = getUserId(_req);
+  const userId = getUserId(req);
   const state = await loadForUser(parkId, userId);
   return NextResponse.json(state);
 }
 
-export async function POST(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const parkId = params.id;
+export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id: parkId } = await params;
   const exists = await loadParkData(parkId);
   if (!exists) return NextResponse.json({ error: "Park not found" }, { status: 404 });
 
