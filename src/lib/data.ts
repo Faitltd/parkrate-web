@@ -2095,7 +2095,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags St. Louis",
     location: "Eureka, MO",
     description: "St. Louis's thrill destination! Features 10 coasters including the American Thunder wooden coaster and Batman: The Ride.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_St_Louis_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Six_Flags_St._Louis.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.0,
