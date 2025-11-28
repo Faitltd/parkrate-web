@@ -466,7 +466,7 @@ export const themeParks: ThemePark[] = [
     name: "Busch Gardens Tampa Bay",
     location: "Tampa, FL",
     description: "African adventure meets world-class thrills! Experience exotic animals, top-tier roller coasters, and live entertainment in a beautifully themed environment.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Busch_Gardens_Tampa_sign.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Tigris_Busch_Gardens.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1690,7 +1690,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags México",
     location: "Mexico City, Mexico",
     description: "Latin America's premier theme park! Features 11 world-class coasters and stunning views of Mexico City from the mountainside location.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Mexico_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Six_Flags_Mexico2.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.5,
@@ -1870,7 +1870,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Orlando",
     location: "Orlando, FL",
     description: "Central Florida's go-kart and coaster park! Features 6 coasters including White Lightning wooden coaster and multi-level go-kart tracks.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Orlando_Entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/94/Fun_Spot_America_Orlando_entrance.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -1915,7 +1915,7 @@ export const themeParks: ThemePark[] = [
     name: "Knoebels Amusement Resort",
     location: "Elysburg, PA",
     description: "America's largest free-admission amusement park! Family-owned gem featuring Phoenix, one of the world's best wooden coasters.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Knoebels_Amusement_Resort_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/93/Knoebels_Phoenix.JPG",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -1960,7 +1960,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags New England",
     location: "Agawam, MA",
     description: "New England's thrill capital! Features 10 coasters including the legendary Superman: The Ride and Wicked Cyclone RMC.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_New_England_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/50/Thunderbolt%2C_Six_Flags_New_England_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.1,
@@ -2320,7 +2320,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland New York",
     location: "Goshen, NY",
     description: "The newest LEGOLAND! Opened in 2021, featuring 7 themed lands and state-of-the-art LEGO attractions in the Hudson Valley.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_New_York_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/38/LEGOLAND_New_York.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2410,7 +2410,7 @@ export const themeParks: ThemePark[] = [
     name: "Dorney Park",
     location: "Allentown, PA",
     description: "Pennsylvania's outdoor summer fun destination! Features 8 coasters and Wildwater Kingdom water park near the Lehigh Valley.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dorney_Park_entrance_sign.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/78/1936_-_Dorney_Park_Zephyr_-_Dorney_Park_-_Allentown_PA.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2770,7 +2770,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Kissimmee",
     location: "Kissimmee, FL",
     description: "Orlando's second Fun Spot location! Features 4 coasters including Mine Blower wooden coaster and unique SkyCoaster.",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Kissimmee_entrance.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Fun_Spot_America_%E2%80%93_Kissimmee_02.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
