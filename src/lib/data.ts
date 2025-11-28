@@ -2809,6 +2809,226 @@ export const themeParks: ThemePark[] = [
         helpful: 87
       }
     ]
+  },
+  {
+    id: "typhoon-lagoon",
+    name: "Disney's Typhoon Lagoon",
+    location: "Lake Buena Vista, FL",
+    description: "Immersive tropical storm-themed water park with the iconic Miss Tilly ship atop Mount Mayday and Florida's best surf wave pool.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Disney%27s_Typhoon_Lagoon_%2828923104866%29.jpg",
+    rating: 4.5,
+    categoryRatings: { food: 4.2, rides: 4.6, parking: 4.3, cleanliness: 4.7, staff: 4.7, value: 4.3 },
+    reviewCount: 1898,
+    priceRange: "$$",
+    categories: ["Disney", "Water Park", "Tropical"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Surf Wave Pool", "Lazy River", "Crush 'n' Gusher", "Family Rafts", "Cabanas"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(407) 939-5277",
+    website: "disneyworld.disney.go.com/destinations/typhoon-lagoon",
+    reviews: [
+      { id: "tl1", author: "Megan Lee", authorInitials: "ML", rating: 5, date: "3 days ago", text: "Wave pool is unbeatable and theming is gorgeous. Grab a cabana if you can; makes the day super relaxing.", helpful: 76 },
+      { id: "tl2", author: "Brian Carter", authorInitials: "BC", rating: 4, date: "1 week ago", text: "Clean, well-staffed, and perfect for families. Arrive early for shade and seats near the wave pool.", helpful: 58 }
+    ]
+  },
+  {
+    id: "volcano-bay",
+    name: "Universal Volcano Bay",
+    location: "Orlando, FL",
+    description: "Polynesian volcanic paradise anchored by Krakatau with TapuTapu virtual queues, coasters, and serene rivers.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Volcano_Bay_%2836829605694%29.jpg",
+    rating: 4.7,
+    categoryRatings: { food: 4.4, rides: 4.8, parking: 4.4, cleanliness: 4.8, staff: 4.8, value: 4.5 },
+    reviewCount: 1800,
+    priceRange: "$$",
+    categories: ["Universal", "Water Park", "Polynesian"],
+    audienceType: "All Ages",
+    parkType: "Water Park",
+    features: ["Krakatau Aqua Coaster", "TapuTapu Virtual Line", "Lazy Rivers", "Wave Pools", "Kids Zones"],
+    hours: "9:00 AM - 8:00 PM",
+    phone: "(407) 363-8000",
+    website: "universalorlando.com/volcano-bay",
+    reviews: [
+      { id: "vb1", author: "Ashley Moore", authorInitials: "AM", rating: 5, date: "2 days ago", text: "TapuTapu makes the day stress-free. Krakatau is amazing and the night lighting is gorgeous.", helpful: 81 },
+      { id: "vb2", author: "Jordan Smith", authorInitials: "JS", rating: 4, date: "1 week ago", text: "Beautiful theming and plenty for kids and thrill seekers. Food is decent, cabanas are pricey but nice.", helpful: 64 }
+    ]
+  },
+  {
+    id: "aquatica-orlando",
+    name: "Aquatica Orlando",
+    location: "Orlando, FL",
+    description: "Bright, tropical SeaWorld water park with high-thrill slides, Roa's Rapids, dolphin view slides, and great family areas.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Aquaticaentrance.jpg",
+    rating: 4.1,
+    categoryRatings: { food: 3.9, rides: 4.3, parking: 4.2, cleanliness: 4.3, staff: 4.3, value: 4.2 },
+    reviewCount: 1437,
+    priceRange: "$",
+    categories: ["SeaWorld", "Water Park", "Tropical"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Breakaway Falls", "Roa's Rapids", "Wave Pools", "Family Slides", "Cabanas"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(407) 545-5550",
+    website: "aquatica.com/orlando",
+    reviews: [
+      { id: "aqo1", author: "Emily Davis", authorInitials: "ED", rating: 4, date: "3 days ago", text: "Breakaway Falls is intense! Plenty of shade but grab chairs early. Great mix for kids and adults.", helpful: 59 },
+      { id: "aqo2", author: "Carlos Perez", authorInitials: "CP", rating: 4, date: "1 week ago", text: "Clean and well-run. Roa's Rapids is a blast. Food is okay, lockers are convenient.", helpful: 41 }
+    ]
+  },
+  {
+    id: "schlitterbahn-new-braunfels",
+    name: "Schlitterbahn New Braunfels",
+    location: "New Braunfels, TX",
+    description: "Classic Texas river resort water park spanning old and new sections with signature tube chutes and Master Blaster.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Schlitterbahn_%284784996890%29.jpg",
+    rating: 4.0,
+    categoryRatings: { food: 3.8, rides: 4.4, parking: 4.0, cleanliness: 4.1, staff: 4.2, value: 4.2 },
+    reviewCount: 933,
+    priceRange: "$",
+    categories: ["Schlitterbahn", "Water Park", "Resort"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Master Blaster", "Tube Chutes", "Lazy River", "Swim-Up Bars", "Resort Access"],
+    hours: "10:00 AM - 8:00 PM",
+    phone: "(830) 625-2351",
+    website: "schlitterbahn.com/new-braunfels",
+    reviews: [
+      { id: "snb1", author: "Laura Hernandez", authorInitials: "LH", rating: 4, date: "4 days ago", text: "Huge park split into sections—plan your day. Master Blaster worth the wait. Great for overnights.", helpful: 52 },
+      { id: "snb2", author: "Mark Evans", authorInitials: "ME", rating: 4, date: "1 week ago", text: "Old and new areas both fun. Shuttles help but can be confusing at first. Bring water shoes.", helpful: 37 }
+    ]
+  },
+  {
+    id: "water-country-usa",
+    name: "Water Country USA",
+    location: "Williamsburg, VA",
+    description: "Tropical-themed wooded water park with big family slides, wave pool, and KIDsiderate play areas near Busch Gardens.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/13/Hubba_Hubba_Highway_Sign.jpg",
+    rating: 4.3,
+    categoryRatings: { food: 4.0, rides: 4.4, parking: 4.3, cleanliness: 4.4, staff: 4.4, value: 4.3 },
+    reviewCount: 736,
+    priceRange: "$",
+    categories: ["Water Country USA", "Water Park", "Family"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Surfer's Bay", "Colossal Curl", "Lazy River", "Kids Zones", "Cabanas"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(757) 229-4386",
+    website: "watercountryusa.com",
+    reviews: [
+      { id: "wc1", author: "Hannah Brooks", authorInitials: "HB", rating: 4, date: "5 days ago", text: "Great variety for all ages. Cabanas help on hot days. Some facilities could use updates.", helpful: 34 },
+      { id: "wc2", author: "Ian Foster", authorInitials: "IF", rating: 4, date: "2 weeks ago", text: "Clean and well-staffed. Slides are fun, wave pool is huge. Lines can build midday.", helpful: 27 }
+    ]
+  },
+  {
+    id: "aquatica-san-antonio",
+    name: "Aquatica San Antonio",
+    location: "San Antonio, TX",
+    description: "SeaWorld's South Texas water park with animal encounters, Walhalla Wave, and family play zones.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Aquatica_San_Antonio_wave_pool.jpg",
+    rating: 4.2,
+    categoryRatings: { food: 3.9, rides: 4.3, parking: 4.2, cleanliness: 4.3, staff: 4.3, value: 4.2 },
+    reviewCount: 650,
+    priceRange: "$",
+    categories: ["SeaWorld", "Water Park", "Texas"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Walhalla Wave", "Stingray Encounter", "Wave Pool", "Kids Play Areas", "Quick Queue"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(210) 520-4732",
+    website: "aquatica.com/san-antonio",
+    reviews: [
+      { id: "aqsa1", author: "Sofia Martinez", authorInitials: "SM", rating: 4, date: "3 days ago", text: "Fun slides and great for kids. Quick Queue helps but not always enforced. Wave pool is a hit.", helpful: 29 },
+      { id: "aqsa2", author: "David Nguyen", authorInitials: "DN", rating: 4, date: "1 week ago", text: "Clean park with friendly staff. Stingray encounter was memorable. Shade can be limited on busy days.", helpful: 22 }
+    ]
+  },
+  {
+    id: "adventure-island",
+    name: "Adventure Island",
+    location: "Tampa, FL",
+    description: "Key West-inspired water park across from Busch Gardens with a relaxed vibe, slides for all ages, and big splash areas.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Adventure_island_2.jpg",
+    rating: 3.6,
+    categoryRatings: { food: 3.2, rides: 3.8, parking: 3.8, cleanliness: 3.7, staff: 3.7, value: 3.6 },
+    reviewCount: 640,
+    priceRange: "$",
+    categories: ["Water Park", "Family", "Tropical"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Colossal Curl", "Wave Pool", "Lazy River", "Kids Splash Areas", "Cabanas"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(813) 884-4386",
+    website: "adventureisland.com",
+    reviews: [
+      { id: "ai1", author: "Kelly Rogers", authorInitials: "KR", rating: 4, date: "4 days ago", text: "Chill atmosphere and plenty for families. Food is pricey; cabanas help with shade.", helpful: 21 },
+      { id: "ai2", author: "Paul Rivera", authorInitials: "PR", rating: 3, date: "2 weeks ago", text: "Fun slides but some closures. Long food lines. Great for kids when everything's open.", helpful: 17 }
+    ]
+  },
+  {
+    id: "knotts-soak-city",
+    name: "Knott's Soak City",
+    location: "Buena Park, CA",
+    description: "Southern California water park with Shore Break, The Wedge, and a popular lazy river near Knott's Berry Farm.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Welcome_to_Soak_City.jpg",
+    rating: 4.0,
+    categoryRatings: { food: 3.6, rides: 4.2, parking: 4.1, cleanliness: 4.2, staff: 4.2, value: 4.1 },
+    reviewCount: 580,
+    priceRange: "$",
+    categories: ["Water Park", "California", "Family"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Lazy River", "Shore Break", "The Wedge", "Kids Splash", "Cabanas"],
+    hours: "10:00 AM - 6:00 PM",
+    phone: "(714) 220-5200",
+    website: "knotts.com/soak-city",
+    reviews: [
+      { id: "ksc1", author: "Tina Lopez", authorInitials: "TL", rating: 4, date: "5 days ago", text: "Great lazy river and kids areas. Food lines can be long—dining plan helps. Wear water shoes.", helpful: 24 },
+      { id: "ksc2", author: "Eric Johnson", authorInitials: "EJ", rating: 4, date: "2 weeks ago", text: "Clean and friendly. Get there early for shaded seating. Slides are fun for all ages.", helpful: 19 }
+    ]
+  },
+  {
+    id: "schlitterbahn-galveston",
+    name: "Schlitterbahn Galveston",
+    location: "Galveston, TX",
+    description: "Coastal Texas water park with a broad slide lineup, lazy rivers, and year-round indoor section.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Schlitterbahn_Waterpark_-_Galveston%2C_Texas_%285976256536%29.jpg",
+    rating: 4.1,
+    categoryRatings: { food: 3.8, rides: 4.3, parking: 4.1, cleanliness: 4.2, staff: 4.3, value: 4.2 },
+    reviewCount: 539,
+    priceRange: "$",
+    categories: ["Schlitterbahn", "Water Park", "Coastal"],
+    audienceType: "Families",
+    parkType: "Water Park",
+    features: ["Lazy River", "Wave Pool", "Indoor Section", "Raft Rides", "Bring-Your-Own Food"],
+    hours: "10:00 AM - 7:00 PM",
+    phone: "(409) 770-9283",
+    website: "schlitterbahn.com/galveston",
+    reviews: [
+      { id: "sbg1", author: "Allison Reed", authorInitials: "AR", rating: 4, date: "1 week ago", text: "Love that you can bring your own food. Clean park with friendly staff. Some slides get long waits.", helpful: 26 },
+      { id: "sbg2", author: "Tom Gray", authorInitials: "TG", rating: 4, date: "2 weeks ago", text: "Indoor section is great in shoulder seasons. Good variety of rides and nice lazy river.", helpful: 21 }
+    ]
+  },
+  {
+    id: "six-flags-hurricane-harbor",
+    name: "Six Flags Hurricane Harbor",
+    location: "Arlington, TX",
+    description: "Large Six Flags water park with massive wave pool, Splash Island play structure, and dozens of slides and rivers.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/27/SixFlagsTower-3908.jpg",
+    rating: 3.6,
+    categoryRatings: { food: 3.0, rides: 3.8, parking: 3.8, cleanliness: 3.6, staff: 3.6, value: 3.7 },
+    reviewCount: 476,
+    priceRange: "$",
+    categories: ["Six Flags", "Water Park", "Texas"],
+    audienceType: "All Ages",
+    parkType: "Water Park",
+    features: ["Mega Wave Pool", "Splash Island", "47 Acres of Slides", "Kids Zones", "Cabanas"],
+    hours: "10:00 AM - 8:00 PM",
+    phone: "(817) 640-8900",
+    website: "sixflags.com/hurricaneharbortexas",
+    reviews: [
+      { id: "sfhh1", author: "Olivia White", authorInitials: "OW", rating: 3, date: "5 days ago", text: "Huge park with lots to do. Lines long on weekends; arrive early for shade. Food pricey.", helpful: 18 },
+      { id: "sfhh2", author: "Ethan Brooks", authorInitials: "EB", rating: 4, date: "2 weeks ago", text: "Great variety of slides and big wave pool. Season pass makes it a better value. Could be cleaner in peak season.", helpful: 15 }
+    ]
   }
 ];
 
