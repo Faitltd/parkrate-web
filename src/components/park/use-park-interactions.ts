@@ -1,34 +1,83 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getOrCreateUserId } from "@/lib/client-id";
-import {
-  fetchParkState,
-  markReviewHelpful,
-  submitReview,
-  toggleSavePark,
-  type ParkStateResponse,
-} from "@/lib/park-api";
-import type { Review, ThemePark } from "@/lib/types";
+import { fetchParkReviews, submitReview, toggleSavePark, voteOnReview } from "@/lib/park-api";
+import type { NormalizedReview, ReviewSort, ThemePark, VoteValue } from "@/lib/types";
 
-type HelpfulMap = Record<string, boolean>;
+const PAGE_SIZE = 6;
 
-const buildHelpfulMap = (ids: string[]): HelpfulMap =>
-  ids.reduce((acc, id) => ({ ...acc, [id]: true }), {});
+const sortLocally = (reviews: NormalizedReview[], sort: ReviewSort) => {
+  const sorted = [...reviews];
+  sorted.sort((a, b) => {
+    if (sort === "newest") {
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime() || b.netHelpful - a.netHelpful;
+    }
+    const diff = b.netHelpful - a.netHelpful;
+    if (diff !== 0) return diff;
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+  return sorted;
+};
+
+const logInteraction = (event: string, payload: Record<string, unknown>) => {
+  if (typeof window === "undefined") return;
+  // Lightweight analytics hook for future integration
+  console.info(`[analytics] ${event}`, payload);
+};
+
+const buildVotesMap = (reviews: NormalizedReview[]) =>
+  reviews.reduce<Record<string, VoteValue>>((acc, review) => {
+    if (review.userVote) acc[review.id] = review.userVote;
+    return acc;
+  }, {});
+
+const buildOfflineReviews = (park: ThemePark): NormalizedReview[] =>
+  park.reviews.map((review, index) => {
+    const helpful = review.helpfulVotes ?? review.helpful ?? 0;
+    const unhelpful = review.unhelpfulVotes ?? 0;
+    const createdAt =
+      review.createdAt ??
+      new Date(Date.now() - index * 86_400_000).toISOString();
+
+    return {
+      id: review.id,
+      parkId: park.id,
+      author: review.author,
+      authorInitials: review.authorInitials,
+      rating: review.rating,
+      text: review.text,
+      visitDate: review.visitDate ?? null,
+      createdAt,
+      helpfulVotes: helpful,
+      unhelpfulVotes: unhelpful,
+      netHelpful: helpful - unhelpful,
+      userVote: null,
+    };
+  });
 
 export const useParkInteractions = (park: ThemePark) => {
   const reviewFormRef = useRef<HTMLDivElement>(null);
   const messageTimeoutRef = useRef<number | null>(null);
 
   const [userId, setUserId] = useState<string | null>(null);
-  const [reviews, setReviews] = useState<Review[]>(park.reviews);
-  const [helpfulVotes, setHelpfulVotes] = useState<HelpfulMap>({});
+  const [reviews, setReviews] = useState<NormalizedReview[]>(() =>
+    sortLocally(buildOfflineReviews(park), "helpful")
+  );
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(PAGE_SIZE);
+  const [total, setTotal] = useState<number>(Math.max(park.reviewCount ?? park.reviews.length, park.reviews.length));
+  const [hasMore, setHasMore] = useState(false);
   const [saved, setSaved] = useState(false);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
+  const [visitDate, setVisitDate] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
+  const [sort, setSort] = useState<ReviewSort>("helpful");
+  const [userVotes, setUserVotes] = useState<Record<string, VoteValue>>({});
 
   const clearMessage = () => {
     if (messageTimeoutRef.current) {
@@ -40,54 +89,75 @@ export const useParkInteractions = (park: ThemePark) => {
   const setTempMessage = useCallback((message: string) => {
     clearMessage();
     setActionMessage(message);
-    messageTimeoutRef.current = window.setTimeout(() => setActionMessage(null), 3000);
+    messageTimeoutRef.current = window.setTimeout(() => setActionMessage(null), 3500);
   }, []);
 
-  const applyState = useCallback((state: ParkStateResponse) => {
-    setReviews(state.reviews);
-    setHelpfulVotes(buildHelpfulMap(state.votedReviewIds));
-    setSaved(state.saved);
+  const applyPage = useCallback(
+    (pageData: { reviews: NormalizedReview[]; saved: boolean; total: number; page: number; pageSize: number; hasMore: boolean; sort: ReviewSort }, reset = false) => {
+      setSaved(pageData.saved);
+      setTotal(pageData.total);
+      setPage(pageData.page);
+      setPageSize(pageData.pageSize);
+      setHasMore(pageData.hasMore);
+      setUserVotes((prev) => ({ ...prev, ...buildVotesMap(pageData.reviews) }));
+
+      setReviews((current) => {
+        const base = reset ? [] : [...current];
+        const merged = new Map<string, NormalizedReview>();
+        base.forEach((review) => merged.set(review.id, review));
+        pageData.reviews.forEach((review) => merged.set(review.id, review));
+        return sortLocally(Array.from(merged.values()), pageData.sort);
+      });
+    },
+    []
+  );
+
+  const fetchPage = useCallback(
+    async (targetPage: number, reset = false, nextSort: ReviewSort = sort) => {
+      if (!userId) return;
+
+      const isLoadMore = targetPage > 1;
+      if (isLoadMore) {
+        setLoadingMore(true);
+      } else {
+        setLoading(true);
+      }
+
+      try {
+        const state = await fetchParkReviews(park.id, userId, {
+          sort: nextSort,
+          page: targetPage,
+          pageSize,
+        });
+        applyPage(state, reset || targetPage === 1);
+        setSyncError(null);
+      } catch (error) {
+        setSyncError("Using offline review data");
+        setHasMore(false);
+        setPage(1);
+        setPageSize(PAGE_SIZE);
+        setReviews(buildOfflineReviews(park));
+      } finally {
+        setLoading(false);
+        setLoadingMore(false);
+      }
+    },
+    [applyPage, pageSize, park, sort, userId]
+  );
+
+  useEffect(() => {
+    const uid = getOrCreateUserId();
+    setUserId(uid);
   }, []);
 
   useEffect(() => {
-    let isMounted = true;
-
-    const syncState = async () => {
-      const uid = getOrCreateUserId();
-      if (!uid) {
-        setLoading(false);
-        return;
-      }
-
-      setUserId(uid);
-      setLoading(true);
-
-      try {
-        const state = await fetchParkState(park.id, uid);
-        if (!isMounted) return;
-        applyState(state);
-        setSyncError(null);
-      } catch (error) {
-        if (!isMounted) return;
-        setSyncError("Using default data (offline mode)");
-        setReviews(park.reviews);
-        setHelpfulVotes({});
-        setSaved(false);
-      } finally {
-        if (!isMounted) return;
-        setSelectedRating(null);
-        setReviewText("");
-        setLoading(false);
-      }
-    };
-
-    void syncState();
+    if (!userId) return;
+    void fetchPage(1, true, sort);
 
     return () => {
-      isMounted = false;
       clearMessage();
     };
-  }, [applyState, park.id, park.reviews]);
+  }, [fetchPage, sort, userId]);
 
   const requireUser = () => {
     if (!userId) {
@@ -99,35 +169,89 @@ export const useParkInteractions = (park: ThemePark) => {
 
   const handleReviewSubmit = async () => {
     if (!reviewText.trim() || !selectedRating) {
-      setTempMessage("Please add text and a star rating before posting.");
+      setTempMessage("Add your story and a star rating before posting.");
       return;
     }
     if (!requireUser()) return;
 
     setLoading(true);
     try {
-      const state = await submitReview(park.id, userId as string, reviewText.trim(), selectedRating);
-      applyState(state);
+      const visit = visitDate ? new Date(visitDate).toISOString().slice(0, 10) : null;
+      const state = await submitReview(
+        park.id,
+        userId as string,
+        reviewText.trim(),
+        selectedRating,
+        visit,
+        { sort, page: 1, pageSize }
+      );
+      applyPage(state, true);
+      logInteraction("review_submit", {
+        parkId: park.id,
+        rating: selectedRating,
+        visitDate: Boolean(visit),
+      });
       setTempMessage("Thanks for sharing your experience!");
+      setSyncError(null);
+      setSelectedRating(null);
+      setVisitDate("");
+      setReviewText("");
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unable to post your review right now.";
       setTempMessage(message);
     } finally {
-      setSelectedRating(null);
-      setReviewText("");
       setLoading(false);
     }
   };
 
-  const handleHelpful = async (reviewId: string) => {
-    if (helpfulVotes[reviewId]) return;
+  const handleVote = async (reviewId: string, vote: VoteValue) => {
+    if (userVotes[reviewId]) {
+      setTempMessage("You already voted!");
+      return;
+    }
     if (!requireUser()) return;
 
+    const previous = reviews;
+    setUserVotes((prev) => ({ ...prev, [reviewId]: vote }));
+
+    const optimistic = reviews.map((review) =>
+      review.id === reviewId
+        ? {
+            ...review,
+            helpfulVotes: review.helpfulVotes + (vote === 1 ? 1 : 0),
+            unhelpfulVotes: review.unhelpfulVotes + (vote === -1 ? 1 : 0),
+            netHelpful: review.netHelpful + (vote === 1 ? 1 : -1),
+            userVote: vote,
+          }
+        : review
+    );
+    setReviews(sortLocally(optimistic, sort));
+
     try {
-      const state = await markReviewHelpful(park.id, userId as string, reviewId);
-      applyState(state);
+      const updated = await voteOnReview(reviewId, userId as string, vote);
+      setReviews((current) =>
+        sortLocally(
+          current.map((review) =>
+            review.id === reviewId
+              ? {
+                  ...review,
+                  ...updated,
+                  netHelpful: updated.helpfulVotes - updated.unhelpfulVotes,
+                }
+              : review
+          ),
+          sort
+        )
+      );
+      logInteraction("review_vote", { reviewId, parkId: updated.parkId, vote });
     } catch (error) {
+      setReviews(previous);
+      setUserVotes((prev) => {
+        const next = { ...prev };
+        delete next[reviewId];
+        return next;
+      });
       const message =
         error instanceof Error ? error.message : "Unable to update vote. Please try again.";
       setTempMessage(message);
@@ -139,8 +263,12 @@ export const useParkInteractions = (park: ThemePark) => {
 
     setLoading(true);
     try {
-      const state = await toggleSavePark(park.id, userId as string, !saved);
-      applyState(state);
+      const state = await toggleSavePark(park.id, userId as string, !saved, {
+        sort,
+        page,
+        pageSize,
+      });
+      applyPage(state, false);
       setTempMessage(!saved ? "Saved for later" : "Removed from saved");
     } catch (error) {
       const message =
@@ -180,15 +308,32 @@ export const useParkInteractions = (park: ThemePark) => {
     }
   };
 
+  const loadMore = useCallback(async () => {
+    if (loadingMore || !hasMore) return;
+    await fetchPage(page + 1, false, sort);
+  }, [fetchPage, hasMore, loadingMore, page, sort]);
+
+  const changeSort = (nextSort: ReviewSort) => {
+    if (nextSort === sort) return;
+    setSort(nextSort);
+  };
+
+  const totalPages = useMemo(() => Math.ceil(total / pageSize), [pageSize, total]);
+
   return {
     actionMessage,
+    changeSort,
     handleDirections,
-    handleHelpful,
     handleReviewSubmit,
     handleSave,
     handleShare,
-    helpfulVotes,
+    handleVote,
+    hasMore,
     loading,
+    loadingMore,
+    loadMore,
+    page,
+    pageSize,
     reviewFormRef,
     reviewText,
     reviews,
@@ -196,6 +341,12 @@ export const useParkInteractions = (park: ThemePark) => {
     selectedRating,
     setReviewText,
     setSelectedRating,
+    setVisitDate,
+    sort,
     syncError,
+    total,
+    totalPages,
+    userVotes,
+    visitDate,
   };
 };

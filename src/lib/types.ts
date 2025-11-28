@@ -1,19 +1,71 @@
+export type VoteValue = 1 | -1;
+
+export type ReviewSort = "helpful" | "newest";
+
 export interface Review {
   id: string;
   author: string;
   authorInitials: string;
   rating: number;
-  date: string;
   text: string;
-  helpful: number;
-  categoryRatings?: {
-    food?: number;
-    rides?: number;
-    parking?: number;
-    cleanliness?: number;
-    staff?: number;
-    value?: number;
-  };
+  /**
+   * Legacy human readable date string (e.g. "2 days ago") kept for seed data.
+   */
+  date?: string;
+  /**
+   * ISO timestamp for when the review was created.
+   */
+  createdAt?: string;
+  /**
+   * ISO date string representing when the visitor went to the park.
+   */
+  visitDate?: string | null;
+  /**
+   * Seed helpfulness total from static content.
+   */
+  helpful?: number;
+  /**
+   * Persisted helpful vote count.
+   */
+  helpfulVotes?: number;
+  /**
+   * Persisted unhelpful vote count.
+   */
+  unhelpfulVotes?: number;
+  /**
+   * Optional owner id; filled for newly submitted reviews.
+   */
+  userId?: string | null;
+  /**
+   * Park association; inferred when missing.
+   */
+  parkId?: string;
+}
+
+export interface NormalizedReview {
+  id: string;
+  parkId: string;
+  author: string;
+  authorInitials: string;
+  rating: number;
+  text: string;
+  visitDate: string | null;
+  createdAt: string;
+  helpfulVotes: number;
+  unhelpfulVotes: number;
+  netHelpful: number;
+  userVote: VoteValue | null;
+}
+
+export interface ReviewPage {
+  parkId: string;
+  reviews: NormalizedReview[];
+  total: number;
+  page: number;
+  pageSize: number;
+  sort: ReviewSort;
+  saved: boolean;
+  hasMore: boolean;
 }
 
 export interface CategoryRatings {

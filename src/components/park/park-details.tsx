@@ -3,12 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowLeft, Clock, Globe, MapPin, Phone, Star, ThumbsUp } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { ArrowLeft, Clock, Filter, Globe, Loader2, MapPin, Phone, Sparkles, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ReviewCard } from "@/components/park/review-card";
 import { StarRating } from "@/components/star-rating";
 import { useParkInteractions } from "./use-park-interactions";
 import type { ThemePark } from "@/lib/types";
@@ -22,13 +24,18 @@ const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat
 export function ParkDetails({ park }: ParkDetailsProps) {
   const {
     actionMessage,
+    changeSort,
     handleDirections,
-    handleHelpful,
     handleReviewSubmit,
     handleSave,
     handleShare,
-    helpfulVotes,
+    handleVote,
+    hasMore,
     loading,
+    loadingMore,
+    loadMore,
+    page,
+    pageSize,
     reviewFormRef,
     reviewText,
     reviews,
@@ -36,8 +43,14 @@ export function ParkDetails({ park }: ParkDetailsProps) {
     selectedRating,
     setReviewText,
     setSelectedRating,
+    setVisitDate,
+    sort,
     syncError,
+    total,
+    totalPages,
+    visitDate,
   } = useParkInteractions(park);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://parkrate.com").replace(/\/$/, "");
   const canonical = `${siteUrl}/park/${park.id}`;
@@ -78,6 +91,23 @@ export function ParkDetails({ park }: ParkDetailsProps) {
       name: feature,
     })),
   };
+
+  useEffect(() => {
+    const sentinel = loadMoreRef.current;
+    if (!sentinel || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting && hasMore && !loadingMore) {
+          void loadMore();
+        }
+      },
+      { rootMargin: "240px" }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasMore, loadMore, loadingMore]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
@@ -145,11 +175,22 @@ export function ParkDetails({ park }: ParkDetailsProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 xl:grid-cols-[1.75fr_1fr] gap-8 items-start">
+          <div className="space-y-8">
             <Card>
               <CardHeader>
-                <CardTitle>Overall Rating</CardTitle>
+                <div className="flex items-center justify-between gap-2">
+                  <CardTitle className="flex items-center gap-2">
+                    Review Pulse
+                    <Badge variant="secondary" className="gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      Live
+                    </Badge>
+                  </CardTitle>
+                  <Badge variant="outline" className="text-xs">
+                    Sorted by {sort === "helpful" ? "helpfulness" : "newest first"}
+                  </Badge>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-6">
@@ -157,7 +198,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                     <div className="text-5xl font-bold mb-2">{park.rating.toFixed(1)}</div>
                     <StarRating rating={park.rating} size="lg" showNumber={false} />
                     <p className="text-sm text-muted-foreground mt-2">
-                      Based on {reviews.length} reviews
+                      Based on {total} reviews
                     </p>
                   </div>
                   <div className="flex-1 w-full">
@@ -167,7 +208,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                       onClick={() => reviewFormRef.current?.scrollIntoView({ behavior: "smooth" })}
                     >
                       <Star className="w-4 h-4 mr-2" />
-                      Write a Review
+                      Share your visit
                     </Button>
                   </div>
                 </div>
@@ -227,12 +268,52 @@ export function ParkDetails({ park }: ParkDetailsProps) {
             </Card>
 
             <Card>
-              <CardHeader>
-                <CardTitle>Reviews ({reviews.length})</CardTitle>
+              <CardHeader className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      Review Gallery
+                      <Badge variant="secondary" className="gap-1">
+                        <Sparkles className="w-3 h-3" />
+                        Ranked
+                      </Badge>
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      Showing {reviews.length} of {total} reviews ·{" "}
+                      {sort === "helpful" ? "Most helpful first" : "Newest first"}
+                    </p>
+                    {total > 100 && (
+                      <p className="text-xs text-muted-foreground">
+                        Page {page} of {totalPages} · auto-loading {pageSize} at a time
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant={sort === "helpful" ? "default" : "outline"}
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => changeSort("helpful")}
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      Most Helpful
+                    </Button>
+                    <Button
+                      variant={sort === "newest" ? "default" : "outline"}
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => changeSort("newest")}
+                    >
+                      <Filter className="w-4 h-4" />
+                      Newest
+                    </Button>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent className="space-y-6">
                 {loading && (
-                  <div className="rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground">
+                  <div className="rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
                     Syncing latest reviews...
                   </div>
                 )}
@@ -247,8 +328,47 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                   </div>
                 )}
 
-                <div ref={reviewFormRef} className="border rounded-xl p-4 bg-muted/30">
-                  <h3 className="font-semibold mb-3">Share your experience</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {reviews.map((review) => (
+                    <ReviewCard
+                      key={review.id}
+                      review={review}
+                      onVote={handleVote}
+                      disabled={loading}
+                    />
+                  ))}
+                  {!reviews.length && !loading && (
+                    <div className="col-span-full rounded-lg border border-dashed p-6 text-center text-muted-foreground">
+                      No reviews yet — be the first to share your take.
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-col items-center gap-3">
+                  <div ref={loadMoreRef} className="h-2 w-full" />
+                  {hasMore ? (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => loadMore()}
+                      disabled={loadingMore}
+                      className="min-w-[180px]"
+                    >
+                      {loadingMore && <Loader2 className="w-4 h-4 animate-spin" />}
+                      {loadingMore ? "Loading more" : `Load ${pageSize} more`}
+                    </Button>
+                  ) : (
+                    <p className="text-xs text-muted-foreground">
+                      You&apos;re seeing all available reviews.
+                    </p>
+                  )}
+                </div>
+
+                <div ref={reviewFormRef} className="border rounded-2xl p-5 bg-muted/40">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold">Share your experience</h3>
+                    <Badge variant="outline">Earn helpful votes</Badge>
+                  </div>
                   <Textarea
                     placeholder="Tell others about your visit to this park..."
                     className="mb-3"
@@ -256,69 +376,46 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                     value={reviewText}
                     onChange={(event) => setReviewText(event.target.value)}
                   />
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
-                          onClick={() => setSelectedRating(star)}
-                        >
-                          <Star
-                            className={`w-6 h-6 cursor-pointer hover:fill-amber-400 hover:text-amber-400 transition-colors ${
-                              selectedRating && star <= selectedRating
-                                ? "fill-amber-400 text-amber-400"
-                                : "fill-gray-200 text-muted-foreground"
-                            }`}
-                          />
-                        </button>
-                      ))}
+                  <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button
+                            key={star}
+                            type="button"
+                            aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
+                            aria-pressed={selectedRating === star}
+                            onClick={() => setSelectedRating(star)}
+                          >
+                            <Star
+                              className={`w-6 h-6 cursor-pointer hover:fill-amber-400 hover:text-amber-400 transition-colors ${
+                                selectedRating && star <= selectedRating
+                                  ? "fill-amber-400 text-amber-400"
+                                  : "fill-gray-200 text-muted-foreground"
+                              }`}
+                            />
+                          </button>
+                        ))}
+                      </div>
+                      <Input
+                        type="date"
+                        value={visitDate}
+                        onChange={(event) => setVisitDate(event.target.value)}
+                        className="w-48"
+                        aria-label="Visit date"
+                      />
                     </div>
                     <Button onClick={handleReviewSubmit} disabled={loading}>
+                      {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                       Post Review
                     </Button>
                   </div>
                 </div>
-
-                {reviews.map((review) => (
-                  <div key={review.id} className="border-b last:border-b-0 pb-6 last:pb-0">
-                    <div className="flex items-start gap-4">
-                      <Avatar className="w-12 h-12">
-                        <AvatarFallback className="bg-gradient-to-br from-orange-500 to-pink-500 text-white font-semibold">
-                          {review.authorInitials}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-2">
-                          <div>
-                            <h4 className="font-semibold">{review.author}</h4>
-                            <StarRating rating={review.rating} size="sm" showNumber={false} />
-                          </div>
-                          <span className="text-sm text-muted-foreground">
-                            {review.date}
-                          </span>
-                        </div>
-                        <p className="text-muted-foreground mb-3">{review.text}</p>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="gap-2"
-                          disabled={helpfulVotes[review.id] || loading}
-                          onClick={() => handleHelpful(review.id)}
-                        >
-                          <ThumbsUp className="w-4 h-4" />
-                          Helpful ({review.helpful})
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
               </CardContent>
             </Card>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 xl:sticky xl:top-28">
             <Card>
               <CardHeader>
                 <CardTitle>Information</CardTitle>

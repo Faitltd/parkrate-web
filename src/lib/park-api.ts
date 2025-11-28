@@ -1,10 +1,6 @@
-import type { Review } from "./types";
+import type { NormalizedReview, ReviewPage, ReviewSort } from "./types";
 
-export type ParkStateResponse = {
-  reviews: Review[];
-  saved: boolean;
-  votedReviewIds: string[];
-};
+export type ParkStateResponse = ReviewPage;
 
 const handleResponse = async (response: Response) => {
   const data = await response.json();
@@ -16,12 +12,26 @@ const handleResponse = async (response: Response) => {
   return data as ParkStateResponse;
 };
 
-const withUserHeaders = (userId: string) => ({
-  "x-user-id": userId,
-});
+const withUserHeaders = (userId?: string | null): HeadersInit | undefined =>
+  userId
+    ? {
+        "x-user-id": userId,
+      }
+    : undefined;
 
-export const fetchParkState = async (parkId: string, userId: string) => {
-  const response = await fetch(`/api/parks/${parkId}`, {
+export const fetchParkReviews = async (
+  parkId: string,
+  userId: string | null,
+  options: { sort?: ReviewSort; page?: number; pageSize?: number } = {}
+) => {
+  const { sort = "helpful", page = 1, pageSize = 6 } = options;
+  const params = new URLSearchParams({
+    sort,
+    page: String(page),
+    pageSize: String(pageSize),
+  });
+
+  const response = await fetch(`/api/parks/${parkId}/reviews?${params.toString()}`, {
     headers: withUserHeaders(userId),
     cache: "no-store",
   });
@@ -29,28 +39,64 @@ export const fetchParkState = async (parkId: string, userId: string) => {
   return handleResponse(response);
 };
 
-const postParkAction = async (
+export const submitReview = async (
   parkId: string,
   userId: string,
-  payload: Record<string, unknown>
+  text: string,
+  rating: number,
+  visitDate: string | null,
+  options: { sort?: ReviewSort; page?: number; pageSize?: number } = {}
 ) => {
-  const response = await fetch(`/api/parks/${parkId}`, {
+  const response = await fetch(`/api/parks/${parkId}/reviews`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       ...withUserHeaders(userId),
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify({
+      rating,
+      review_text: text,
+      visit_date: visitDate,
+      ...options,
+    }),
   });
 
   return handleResponse(response);
 };
 
-export const submitReview = async (parkId: string, userId: string, text: string, rating: number) =>
-  postParkAction(parkId, userId, { action: "addReview", text, rating });
+export const voteOnReview = async (reviewId: string, userId: string, vote: 1 | -1) => {
+  const response = await fetch(`/api/reviews/${reviewId}/vote`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...withUserHeaders(userId),
+    },
+    body: JSON.stringify({ vote }),
+  });
 
-export const markReviewHelpful = async (parkId: string, userId: string, reviewId: string) =>
-  postParkAction(parkId, userId, { action: "markHelpful", reviewId });
+  const data = await response.json();
+  if (!response.ok) {
+    const message = typeof data?.error === "string" ? data.error : "Unexpected response from server";
+    throw new Error(message);
+  }
 
-export const toggleSavePark = async (parkId: string, userId: string, save: boolean) =>
-  postParkAction(parkId, userId, { action: "toggleSave", save });
+  return data.review as NormalizedReview;
+};
+
+export const toggleSavePark = async (
+  parkId: string,
+  userId: string,
+  save: boolean,
+  options: { sort?: ReviewSort; page?: number; pageSize?: number } = {}
+) => {
+  const response = await fetch(`/api/parks/${parkId}/save`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...withUserHeaders(userId),
+    },
+    body: JSON.stringify({ save, ...options }),
+  });
+
+  return handleResponse(response);
+};
