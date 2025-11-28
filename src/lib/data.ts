@@ -970,7 +970,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Diego",
     location: "San Diego, CA",
     description: "Marine life meets thrilling rides! Experience incredible animal encounters, world-class shows, and exciting roller coasters overlooking Mission Bay.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/cc/KI_SOB_Layout.JPG",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&h=900&fit=crop",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
