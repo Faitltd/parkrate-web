@@ -1105,7 +1105,7 @@ export const themeParks: ThemePark[] = [
     name: "Hollywood Studios",
     location: "Orlando, FL",
     description: "Experience the magic of movies and television! Featuring Star Wars: Galaxy's Edge, Toy Story Land, and thrilling attractions based on blockbuster films.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/92/Entrance_to_Disney%27s_Hollywood_Studios_%28May_2023%29.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.8,
@@ -1150,7 +1150,7 @@ export const themeParks: ThemePark[] = [
     name: "Disney's Animal Kingdom",
     location: "Orlando, FL",
     description: "Disney's wild adventure park! Experience Pandora - The World of Avatar, African safaris, and Expedition Everest in the largest Disney theme park.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/19/AnimalKingdomEntrance.JPG",
     rating: 4.7,
     categoryRatings: {
       food: 4.7,
@@ -1195,7 +1195,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Studios Florida",
     location: "Orlando, FL",
     description: "Ride the movies at Universal's original Florida park! Featuring Diagon Alley, Transformers, and incredible attractions based on your favorite films.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Entrance_of_Universal_Studios_Florida_%28May_2023%29.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1240,7 +1240,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Epic Universe",
     location: "Orlando, FL",
     description: "Universal's newest and most ambitious park opening 2025! Features 12 state-of-the-art attractions including Nintendo World, How to Train Your Dragon, and more!",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Chronos_Tower_Front_Epic_Universe.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -1285,7 +1285,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld Orlando",
     location: "Orlando, FL",
     description: "Florida's premier marine life park! Features incredible animal experiences, thrilling coasters like Mako and Kraken, and world-class shows.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/SeaWorld_Orlando_lighthouse.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -1330,7 +1330,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Great America",
     location: "Gurnee, IL",
     description: "Chicago's thrill capital! 16 world-class coasters including the iconic Goliath and Maxx Force, the fastest launch coaster in North America.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/85/Six_Flags_Great_America%27s_Entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.1,
@@ -1375,7 +1375,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Over Texas",
     location: "Arlington, TX",
     description: "The original Six Flags! Texas-sized thrills with 13 coasters including the legendary Texas Giant and Mr. Freeze Reverse Blast.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/43/Six_Flags_over_Texas_%28Entrance%29.JPG",
     rating: 4.4,
     categoryRatings: {
       food: 4.2,
@@ -1420,7 +1420,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Fiesta Texas",
     location: "San Antonio, TX",
     description: "Built in a quarry with stunning rock walls! Features 12 thrilling coasters including Iron Rattler and Wonder Woman Golden Lasso Coaster.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/SFFT-Entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.3,
@@ -1465,7 +1465,7 @@ export const themeParks: ThemePark[] = [
     name: "Kennywood",
     location: "West Mifflin, PA",
     description: "Historic Pittsburgh amusement park since 1898! Classic rides mixed with modern thrills including Phantom's Revenge and Steel Curtain.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Kennywood_Entrance_-_panoramio.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -1510,7 +1510,7 @@ export const themeParks: ThemePark[] = [
     name: "Kings Dominion",
     location: "Doswell, VA",
     description: "Virginia's premier theme park! Features 13 thrilling coasters including Intimidator 305, one of the most intense giga coasters in the world.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Front_Entrance_to_Parking_Kings_Dominion.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.2,
@@ -1555,7 +1555,7 @@ export const themeParks: ThemePark[] = [
     name: "Holiday World & Splashin' Safari",
     location: "Santa Claus, IN",
     description: "Free drinks and sunscreen! Family-owned park featuring The Voyage wooden coaster and one of America's best water parks.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Zinga.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1600,7 +1600,7 @@ export const themeParks: ThemePark[] = [
     name: "Lagoon",
     location: "Farmington, UT",
     description: "Utah's premier amusement park! Family-owned since 1886, featuring 9 coasters including Cannibal and the classic wooden Roller Coaster.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Lagoon_Roller_Coaster_winter.jpeg",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
