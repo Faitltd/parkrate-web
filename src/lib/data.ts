@@ -466,7 +466,7 @@ export const themeParks: ThemePark[] = [
     name: "Busch Gardens Tampa Bay",
     location: "Tampa, FL",
     description: "African adventure meets world-class thrills! Experience exotic animals, top-tier roller coasters, and live entertainment in a beautifully themed environment.",
-    image: "https://images.unsplash.com/photo-1572819620274-d5c0f8e13339?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Busch_Gardens_Tampa_sign.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1645,7 +1645,7 @@ export const themeParks: ThemePark[] = [
     name: "La Ronde",
     location: "Montreal, Quebec",
     description: "Montreal's iconic amusement park on an island! Features 10 coasters and stunning views of the city skyline.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/La_Ronde_-_Man%C3%A8ges.JPG",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1690,7 +1690,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags México",
     location: "Mexico City, Mexico",
     description: "Latin America's premier theme park! Features 11 world-class coasters and stunning views of Mexico City from the mountainside location.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Mexico_entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.5,
@@ -1735,7 +1735,7 @@ export const themeParks: ThemePark[] = [
     name: "Xcaret Park",
     location: "Riviera Maya, Mexico",
     description: "Nature and culture eco-park! Experience underground rivers, Mexican culture, wildlife, and spectacular shows in this unique Cancun attraction.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Xcaret_Letras.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.8,
@@ -1780,7 +1780,7 @@ export const themeParks: ThemePark[] = [
     name: "Gilroy Gardens",
     location: "Gilroy, CA",
     description: "Unique horticul-themed park! Features circus trees, beautiful gardens, and 6 family-friendly rides in California's Garlic Capital.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Circus_Tree_at_Gilroy_Gardens.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 4.3,
@@ -1825,7 +1825,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland Florida",
     location: "Winter Haven, FL",
     description: "Florida's LEGO paradise! Built on the former site of Cypress Gardens, featuring 4 coasters and amazing LEGO displays.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_Florida_sign.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1870,7 +1870,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Orlando",
     location: "Orlando, FL",
     description: "Central Florida's go-kart and coaster park! Features 6 coasters including White Lightning wooden coaster and multi-level go-kart tracks.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Orlando_Entrance.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -1915,7 +1915,7 @@ export const themeParks: ThemePark[] = [
     name: "Knoebels Amusement Resort",
     location: "Elysburg, PA",
     description: "America's largest free-admission amusement park! Family-owned gem featuring Phoenix, one of the world's best wooden coasters.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Knoebels_Amusement_Resort_entrance.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -1960,7 +1960,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags New England",
     location: "Agawam, MA",
     description: "New England's thrill capital! Features 10 coasters including the legendary Superman: The Ride and Wicked Cyclone RMC.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_New_England_entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.1,
@@ -2005,7 +2005,7 @@ export const themeParks: ThemePark[] = [
     name: "Valleyfair",
     location: "Shakopee, MN",
     description: "Minnesota's largest amusement park! Features 8 coasters and Soak City water park in the Twin Cities area.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Valleyfair,_Shakopee,_Minnesota_(52358528378).jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2050,7 +2050,7 @@ export const themeParks: ThemePark[] = [
     name: "Michigan's Adventure",
     location: "Muskegon, MI",
     description: "Michigan's largest amusement park! Featuring 6 coasters and a massive water park on the shores of Lake Michigan.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Michigan's_Adventure_panorama_(3651164785).jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -2095,7 +2095,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags St. Louis",
     location: "Eureka, MO",
     description: "St. Louis's thrill destination! Features 10 coasters including the American Thunder wooden coaster and Batman: The Ride.",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=1600&h=900&fit=crop",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_St_Louis_entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.0,
