@@ -7,7 +7,7 @@ export const themeParks: ThemePark[] = [
     name: "Disneyland",
     location: "Anaheim, CA",
     description: "The original Magic Kingdom and the happiest place on Earth. Features 8 iconic roller coasters and timeless Disney magic across multiple themed lands.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Disneyland_Castle_2019.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Disneyland_Castle_2019.jpg",
     rating: 4.9,
     categoryRatings: {
       food: 4.8,
@@ -61,7 +61,7 @@ export const themeParks: ThemePark[] = [
     name: "Disney California Adventure",
     location: "Anaheim, CA",
     description: "Celebrating the spirit of California with thrilling attractions, world-class entertainment, and unique Disney storytelling. Home to Guardians of the Galaxy and Incredicoaster.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/5b/California_Adventure_Park_Panorama.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/California_Adventure_Park_Panorama.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.9,
@@ -106,7 +106,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Studios Hollywood",
     location: "Universal City, CA",
     description: "The entertainment capital of LA! Experience movie magic with the world-famous Studio Tour and thrilling attractions based on blockbuster films.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Universal_Studios_Hollywood_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Universal_Studios_Hollywood_Entrance.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.5,
@@ -151,7 +151,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Magic Mountain",
     location: "Valencia, CA",
     description: "The Thrill Capital of the World! Home to 20 world-class roller coasters including the legendary Twisted Colossus and record-breaking X2.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/26/Six_Flags_Magic_Mountain_Sky_Tower.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Magic_Mountain_Sky_Tower.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 3.8,
@@ -196,7 +196,7 @@ export const themeParks: ThemePark[] = [
     name: "Knott's Berry Farm",
     location: "Buena Park, CA",
     description: "California's first theme park! A perfect blend of Old West charm, family-friendly attractions, and world-class roller coasters including GhostRider.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Knott%27s_Berry_Farm_main_gate_2019.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Knott%27s_Berry_Farm_main_gate_2019.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.6,
@@ -241,7 +241,7 @@ export const themeParks: ThemePark[] = [
     name: "Magic Kingdom",
     location: "Orlando, FL",
     description: "The most magical place on Earth! Walt Disney World's flagship park featuring Cinderella Castle, classic attractions, and unforgettable Disney experiences.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Cinderella_Castle_2013_Walt_Disney_World.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cinderella_Castle_2013_Walt_Disney_World.jpg",
     rating: 4.9,
     categoryRatings: {
       food: 4.7,
@@ -286,7 +286,7 @@ export const themeParks: ThemePark[] = [
     name: "EPCOT",
     location: "Orlando, FL",
     description: "Explore the world and the future! Experience international cuisine, culture, and cutting-edge attractions at Disney's most unique theme park.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Epcot_2013.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Epcot_2013.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 5.0,
@@ -331,7 +331,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal's Islands of Adventure",
     location: "Orlando, FL",
     description: "Adventure awaits across legendary islands! Home to The Wizarding World of Harry Potter - Hogsmeade and some of the world's most innovative attractions.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Islands_of_Adventure_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Islands_of_Adventure_Entrance.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.7,
@@ -376,7 +376,7 @@ export const themeParks: ThemePark[] = [
     name: "Cedar Point",
     location: "Sandusky, OH",
     description: "The Roller Coaster Capital of the World! 18 world-class coasters on a beautiful Lake Erie peninsula. America's premier amusement park.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Cedar_Point_Park_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cedar_Point_Park_Entrance.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.2,
@@ -421,7 +421,7 @@ export const themeParks: ThemePark[] = [
     name: "Dollywood",
     location: "Pigeon Forge, TN",
     description: "Dolly Parton's mountain paradise! Experience Southern hospitality, award-winning rides, world-class entertainment, and the beauty of the Smoky Mountains.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Dollywood_2016.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dollywood_2016.jpg",
     rating: 4.9,
     categoryRatings: {
       food: 4.9,
@@ -466,7 +466,7 @@ export const themeParks: ThemePark[] = [
     name: "Busch Gardens Tampa Bay",
     location: "Tampa, FL",
     description: "African adventure meets world-class thrills! Experience exotic animals, top-tier roller coasters, and live entertainment in a beautifully themed environment.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Busch_Gardens_Tampa_Sheikra.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Busch_Gardens_Tampa_Sheikra.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -511,7 +511,7 @@ export const themeParks: ThemePark[] = [
     name: "Kings Island",
     location: "Mason, OH",
     description: "Ohio's premier amusement park featuring 15 roller coasters including the legendary Beast, Orion, and family-friendly Planet Snoopy.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/97/Kings_Island_Eiffel_Tower.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kings_Island_Eiffel_Tower.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.3,
@@ -556,7 +556,7 @@ export const themeParks: ThemePark[] = [
     name: "Hersheypark",
     location: "Hershey, PA",
     description: "The Sweetest Place on Earth! 14 roller coasters, water attractions, and chocolate-themed fun in the heart of Pennsylvania Dutch Country.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/07/Hersheypark_Ferris_Wheel.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hersheypark_Ferris_Wheel.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.5,
@@ -601,7 +601,7 @@ export const themeParks: ThemePark[] = [
     name: "Silver Dollar City",
     location: "Branson, MO",
     description: "1880s-themed park in the Ozark Mountains! World-class coasters, master craftsmen, and the friendliest atmosphere in the theme park industry.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Silver_Dollar_City_Entrance_2018.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Silver_Dollar_City_Entrance_2018.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.9,
@@ -646,7 +646,7 @@ export const themeParks: ThemePark[] = [
     name: "Canada's Wonderland",
     location: "Vaughan, Ontario",
     description: "Canada's premier theme park! 17 world-class roller coasters including Yukon Striker, the world's fastest, tallest, and longest dive coaster.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Canada%27s_Wonderland_Mountain.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Canada%27s_Wonderland_Mountain.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
@@ -691,7 +691,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Great Adventure",
     location: "Jackson, NJ",
     description: "Home of the legendary Kingda Ka! 14 intense roller coasters including the world's tallest and fastest, plus a drive-through safari.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/31/Kingda_Ka_Side_View.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kingda_Ka_Side_View.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.0,
@@ -736,7 +736,7 @@ export const themeParks: ThemePark[] = [
     name: "Carowinds",
     location: "Charlotte, NC",
     description: "Straddling the North Carolina-South Carolina border! 14 thrilling coasters including Fury 325, one of the world's best giga coasters.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Carowinds_Entrance_2018.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Carowinds_Entrance_2018.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.2,
@@ -781,7 +781,7 @@ export const themeParks: ThemePark[] = [
     name: "Busch Gardens Williamsburg",
     location: "Williamsburg, VA",
     description: "The world's most beautiful theme park! European-themed villages, award-winning landscaping, and world-class roller coasters in Virginia.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Busch_Gardens_Williamsburg_Festhaus.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Busch_Gardens_Williamsburg_Festhaus.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -826,7 +826,7 @@ export const themeParks: ThemePark[] = [
     name: "Elitch Gardens",
     location: "Denver, CO",
     description: "Denver's only world-class combination theme and water park! A Colorado icon for over 130 years, offering 6 thrilling coasters and 40+ attractions with stunning mountain and city views.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Elitch_Gardens_Denver.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Elitch_Gardens_Denver.jpg",
     rating: 5.0,
     categoryRatings: {
       food: 5.0,
@@ -880,7 +880,7 @@ export const themeParks: ThemePark[] = [
     name: "Xplor Park",
     location: "Riviera Maya, Mexico",
     description: "Thrilling adventure park in the jungle! Experience ziplines, amphibious vehicles, underground rivers, and rafting through stalactite-filled caves in the heart of the Mayan Riviera.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Xplor_%28Park%29_Zipline.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Xplor_%28Park%29_Zipline.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
@@ -925,7 +925,7 @@ export const themeParks: ThemePark[] = [
     name: "Xel-Ha Park",
     location: "Solidaridad, Mexico",
     description: "Natural aquatic paradise! Snorkel in crystal-clear waters, explore cenotes, and float down the lazy river in this stunning eco-park on the Caribbean coast.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Xel-Ha_Lagoon.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Xel-Ha_Lagoon.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.6,
@@ -970,7 +970,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Diego",
     location: "San Diego, CA",
     description: "Marine life meets thrilling rides! Experience incredible animal encounters, world-class shows, and exciting roller coasters overlooking Mission Bay.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/SeaWorld_San_Diego_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/SeaWorld_San_Diego_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -1015,7 +1015,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland California",
     location: "Carlsbad, CA",
     description: "Everything is awesome! Perfect for families with young children, featuring LEGO-themed rides, building workshops, and incredible LEGO sculptures.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/7/74/Legoland_California_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_California_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1060,7 +1060,7 @@ export const themeParks: ThemePark[] = [
     name: "California's Great America",
     location: "Santa Clara, CA",
     description: "Silicon Valley's premier theme park! Features 7 thrilling coasters including Gold Striker and Flight Deck, plus Boomerang Bay water park.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Great_America_Carousel_Columbia.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Great_America_Carousel_Columbia.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -1105,7 +1105,7 @@ export const themeParks: ThemePark[] = [
     name: "Hollywood Studios",
     location: "Orlando, FL",
     description: "Experience the magic of movies and television! Featuring Star Wars: Galaxy's Edge, Toy Story Land, and thrilling attractions based on blockbuster films.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Hollywood_Studios_Entrance_2018.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hollywood_Studios_Entrance_2018.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.8,
@@ -1150,7 +1150,7 @@ export const themeParks: ThemePark[] = [
     name: "Disney's Animal Kingdom",
     location: "Orlando, FL",
     description: "Disney's wild adventure park! Experience Pandora - The World of Avatar, African safaris, and Expedition Everest in the largest Disney theme park.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Tree_of_Life_Animal_Kingdom_2017.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tree_of_Life_Animal_Kingdom_2017.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.7,
@@ -1195,7 +1195,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Studios Florida",
     location: "Orlando, FL",
     description: "Ride the movies at Universal's original Florida park! Featuring Diagon Alley, Transformers, and incredible attractions based on your favorite films.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Universal_Studios_Florida_Entrance_2019.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Universal_Studios_Florida_Entrance_2019.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1240,7 +1240,7 @@ export const themeParks: ThemePark[] = [
     name: "Universal Epic Universe",
     location: "Orlando, FL",
     description: "Universal's newest and most ambitious park opening 2025! Features 12 state-of-the-art attractions including Nintendo World, How to Train Your Dragon, and more!",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Universal_Epic_Universe_Construction_2024.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Universal_Epic_Universe_Construction_2024.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -1285,7 +1285,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld Orlando",
     location: "Orlando, FL",
     description: "Florida's premier marine life park! Features incredible animal experiences, thrilling coasters like Mako and Kraken, and world-class shows.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/41/SeaWorld_Orlando_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/SeaWorld_Orlando_Entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -1330,7 +1330,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Great America",
     location: "Gurnee, IL",
     description: "Chicago's thrill capital! 16 world-class coasters including the iconic Goliath and Maxx Force, the fastest launch coaster in North America.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Six_Flags_Great_America_Fountain.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Great_America_Fountain.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.1,
@@ -1375,7 +1375,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Over Texas",
     location: "Arlington, TX",
     description: "The original Six Flags! Texas-sized thrills with 13 coasters including the legendary Texas Giant and Mr. Freeze Reverse Blast.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Six_Flags_Over_Texas_Entrance_2019.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Over_Texas_Entrance_2019.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.2,
@@ -1420,7 +1420,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Fiesta Texas",
     location: "San Antonio, TX",
     description: "Built in a quarry with stunning rock walls! Features 12 thrilling coasters including Iron Rattler and Wonder Woman Golden Lasso Coaster.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Six_Flags_Fiesta_Texas_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Fiesta_Texas_Entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.3,
@@ -1465,7 +1465,7 @@ export const themeParks: ThemePark[] = [
     name: "Kennywood",
     location: "West Mifflin, PA",
     description: "Historic Pittsburgh amusement park since 1898! Classic rides mixed with modern thrills including Phantom's Revenge and Steel Curtain.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Kennywood_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kennywood_Entrance.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -1510,7 +1510,7 @@ export const themeParks: ThemePark[] = [
     name: "Kings Dominion",
     location: "Doswell, VA",
     description: "Virginia's premier theme park! Features 13 thrilling coasters including Intimidator 305, one of the most intense giga coasters in the world.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kings_Dominion_Eiffel_Tower.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kings_Dominion_Eiffel_Tower.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.2,
@@ -1555,7 +1555,7 @@ export const themeParks: ThemePark[] = [
     name: "Holiday World & Splashin' Safari",
     location: "Santa Claus, IN",
     description: "Free drinks and sunscreen! Family-owned park featuring The Voyage wooden coaster and one of America's best water parks.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Holiday_World_Raven.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Holiday_World_Raven.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.6,
@@ -1600,7 +1600,7 @@ export const themeParks: ThemePark[] = [
     name: "Lagoon",
     location: "Farmington, UT",
     description: "Utah's premier amusement park! Family-owned since 1886, featuring 9 coasters including Cannibal and the classic wooden Roller Coaster.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/46/Lagoon_Amusement_Park_Utah.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lagoon_Amusement_Park_Utah.jpg",
     rating: 4.6,
     categoryRatings: {
       food: 4.4,
@@ -1645,7 +1645,7 @@ export const themeParks: ThemePark[] = [
     name: "La Ronde",
     location: "Montreal, Quebec",
     description: "Montreal's iconic amusement park on an island! Features 10 coasters and stunning views of the city skyline.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/47/La_Ronde_Montreal_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/La_Ronde_Montreal_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1690,7 +1690,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags México",
     location: "Mexico City, Mexico",
     description: "Latin America's premier theme park! Features 11 world-class coasters and stunning views of Mexico City from the mountainside location.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Six_Flags_Mexico_Main_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_Mexico_Main_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.5,
@@ -1735,7 +1735,7 @@ export const themeParks: ThemePark[] = [
     name: "Xcaret Park",
     location: "Riviera Maya, Mexico",
     description: "Nature and culture eco-park! Experience underground rivers, Mexican culture, wildlife, and spectacular shows in this unique Cancun attraction.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Xcaret_Park_Mexico.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Xcaret_Park_Mexico.jpg",
     rating: 4.7,
     categoryRatings: {
       food: 4.8,
@@ -1780,7 +1780,7 @@ export const themeParks: ThemePark[] = [
     name: "Gilroy Gardens",
     location: "Gilroy, CA",
     description: "Unique horticul-themed park! Features circus trees, beautiful gardens, and 6 family-friendly rides in California's Garlic Capital.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Gilroy_Gardens_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gilroy_Gardens_Entrance.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 4.3,
@@ -1825,7 +1825,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland Florida",
     location: "Winter Haven, FL",
     description: "Florida's LEGO paradise! Built on the former site of Cypress Gardens, featuring 4 coasters and amazing LEGO displays.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/46/Legoland_Florida_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_Florida_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -1870,7 +1870,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Orlando",
     location: "Orlando, FL",
     description: "Central Florida's go-kart and coaster park! Features 6 coasters including White Lightning wooden coaster and multi-level go-kart tracks.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/10/Fun_Spot_America_Orlando_Skyscraper.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Orlando_Skyscraper.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -1915,7 +1915,7 @@ export const themeParks: ThemePark[] = [
     name: "Knoebels Amusement Resort",
     location: "Elysburg, PA",
     description: "America's largest free-admission amusement park! Family-owned gem featuring Phoenix, one of the world's best wooden coasters.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Knoebels_Phoenix_Coaster.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Knoebels_Phoenix_Coaster.jpg",
     rating: 4.8,
     categoryRatings: {
       food: 4.8,
@@ -1960,7 +1960,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags New England",
     location: "Agawam, MA",
     description: "New England's thrill capital! Features 10 coasters including the legendary Superman: The Ride and Wicked Cyclone RMC.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Six_Flags_New_England_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_New_England_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.1,
@@ -2005,7 +2005,7 @@ export const themeParks: ThemePark[] = [
     name: "Valleyfair",
     location: "Shakopee, MN",
     description: "Minnesota's largest amusement park! Features 8 coasters and Soak City water park in the Twin Cities area.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Valleyfair_Entrance_2017.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Valleyfair_Entrance_2017.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2050,7 +2050,7 @@ export const themeParks: ThemePark[] = [
     name: "Michigan's Adventure",
     location: "Muskegon, MI",
     description: "Michigan's largest amusement park! Featuring 6 coasters and a massive water park on the shores of Lake Michigan.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/48/Michigan%27s_Adventure_Shivering_Timbers.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Michigan%27s_Adventure_Shivering_Timbers.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
@@ -2095,7 +2095,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags St. Louis",
     location: "Eureka, MO",
     description: "St. Louis's thrill destination! Features 10 coasters including the American Thunder wooden coaster and Batman: The Ride.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Six_Flags_St._Louis_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Six_Flags_St._Louis_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.0,
@@ -2140,7 +2140,7 @@ export const themeParks: ThemePark[] = [
     name: "Worlds of Fun",
     location: "Kansas City, MO",
     description: "Kansas City's premier theme park! Features 7 coasters and Oceans of Fun water park with an around-the-world theme.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Worlds_of_Fun_Entrance_2018.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Worlds_of_Fun_Entrance_2018.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2185,7 +2185,7 @@ export const themeParks: ThemePark[] = [
     name: "SeaWorld San Antonio",
     location: "San Antonio, TX",
     description: "Texas's premier marine life park! Features incredible animal shows, thrilling coasters, and one of the world's largest marine life parks.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/SeaWorld_San_Antonio_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/SeaWorld_San_Antonio_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2230,7 +2230,7 @@ export const themeParks: ThemePark[] = [
     name: "Dolly's Splash Country",
     location: "Pigeon Forge, TN",
     description: "Dolly Parton's water park! 35 acres of water fun in the Smoky Mountains with slides, wave pools, and Southern hospitality.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/94/Dollywoods_Splash_Country.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dollywoods_Splash_Country.jpg",
     rating: 4.5,
     categoryRatings: {
       food: 4.4,
@@ -2275,7 +2275,7 @@ export const themeParks: ThemePark[] = [
     name: "Six Flags Darien Lake",
     location: "Darien, NY",
     description: "Upstate New York's premier park! Features 7 coasters, water park, and on-site camping between Buffalo and Rochester.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Darien_Lake_Ride.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Darien_Lake_Ride.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2320,7 +2320,7 @@ export const themeParks: ThemePark[] = [
     name: "Legoland New York",
     location: "Goshen, NY",
     description: "The newest LEGOLAND! Opened in 2021, featuring 7 themed lands and state-of-the-art LEGO attractions in the Hudson Valley.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/30/Legoland_New_York_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Legoland_New_York_Entrance.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2365,7 +2365,7 @@ export const themeParks: ThemePark[] = [
     name: "Kentucky Kingdom",
     location: "Louisville, KY",
     description: "Louisville's urban theme park! Features 7 coasters and Hurricane Bay water park, reopened and revitalized in 2014.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/14/Kentucky_Kingdom_Lightning_Run.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kentucky_Kingdom_Lightning_Run.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2410,7 +2410,7 @@ export const themeParks: ThemePark[] = [
     name: "Dorney Park",
     location: "Allentown, PA",
     description: "Pennsylvania's outdoor summer fun destination! Features 8 coasters and Wildwater Kingdom water park near the Lehigh Valley.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Dorney_Park_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dorney_Park_Entrance.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2455,7 +2455,7 @@ export const themeParks: ThemePark[] = [
     name: "Sesame Place Philadelphia",
     location: "Langhorne, PA",
     description: "The only theme park in the US based on Sesame Street! Perfect for preschoolers with character meet-and-greets and gentle rides.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Sesame_Place_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sesame_Place_Entrance.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.1,
@@ -2500,7 +2500,7 @@ export const themeParks: ThemePark[] = [
     name: "Dutch Wonderland",
     location: "Lancaster, PA",
     description: "A Kingdom for Kids in Pennsylvania Dutch Country! Family-friendly park with 3 coasters and attractions perfect for children.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Dutch_Wonderland_Castle.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dutch_Wonderland_Castle.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.2,
@@ -2545,7 +2545,7 @@ export const themeParks: ThemePark[] = [
     name: "Mt. Olympus Water & Theme Park",
     location: "Wisconsin Dells, WI",
     description: "Wisconsin Dells' largest park! Unique combination of indoor and outdoor parks with 7 coasters and massive water attractions.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/df/Mount_Olympus_Wisconsin.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Olympus_Wisconsin.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 3.9,
@@ -2590,7 +2590,7 @@ export const themeParks: ThemePark[] = [
     name: "Canobie Lake Park",
     location: "Salem, NH",
     description: "Historic New England park since 1902! Features 5 coasters and classic rides on the shores of Canobie Lake.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Canobie_Lake_Park_Entrance_2016.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Canobie_Lake_Park_Entrance_2016.jpg",
     rating: 4.4,
     categoryRatings: {
       food: 4.3,
@@ -2635,7 +2635,7 @@ export const themeParks: ThemePark[] = [
     name: "Playland Vancouver",
     location: "Vancouver, BC",
     description: "Vancouver's historic amusement park! Features 6 coasters including the classic Wooden Coaster from 1958.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Playland_Vancouver_PNE.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Playland_Vancouver_PNE.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 4.0,
@@ -2680,7 +2680,7 @@ export const themeParks: ThemePark[] = [
     name: "Galaxyland",
     location: "Edmonton, Alberta",
     description: "World's largest indoor amusement park! Features 5 coasters including Mindbender, all indoors at West Edmonton Mall.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Galaxyland_West_Edmonton_Mall.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Galaxyland_West_Edmonton_Mall.jpg",
     rating: 4.3,
     categoryRatings: {
       food: 4.1,
@@ -2725,7 +2725,7 @@ export const themeParks: ThemePark[] = [
     name: "Calaway Park",
     location: "Calgary, Alberta",
     description: "Western Canada's largest outdoor family amusement park! Features 2 coasters and over 30 rides near the Rocky Mountains.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Calaway_Park_Entrance.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Calaway_Park_Entrance.jpg",
     rating: 4.1,
     categoryRatings: {
       food: 4.0,
@@ -2770,7 +2770,7 @@ export const themeParks: ThemePark[] = [
     name: "Fun Spot America Kissimmee",
     location: "Kissimmee, FL",
     description: "Orlando's second Fun Spot location! Features 4 coasters including Mine Blower wooden coaster and unique SkyCoaster.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fun_Spot_America_Kissimmee.jpg",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fun_Spot_America_Kissimmee.jpg",
     rating: 4.2,
     categoryRatings: {
       food: 3.9,
