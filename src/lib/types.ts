@@ -8,6 +8,7 @@ export interface Review {
   authorInitials: string;
   rating: number;
   text: string;
+  photos?: string[];
   /**
    * Legacy human readable date string (e.g. "2 days ago") kept for seed data.
    */
@@ -49,6 +50,7 @@ export interface NormalizedReview {
   authorInitials: string;
   rating: number;
   text: string;
+  photos: string[];
   visitDate: string | null;
   createdAt: string;
   helpfulVotes: number;

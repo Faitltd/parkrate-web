@@ -45,7 +45,7 @@ export const submitReview = async (
   text: string,
   rating: number,
   visitDate: string | null,
-  options: { sort?: ReviewSort; page?: number; pageSize?: number } = {}
+  options: { sort?: ReviewSort; page?: number; pageSize?: number; photos?: string[] } = {}
 ) => {
   const response = await fetch(`/api/parks/${parkId}/reviews`, {
     method: "POST",
@@ -57,7 +57,10 @@ export const submitReview = async (
       rating,
       review_text: text,
       visit_date: visitDate,
-      ...options,
+      photos: options.photos,
+      sort: options.sort,
+      page: options.page,
+      pageSize: options.pageSize,
     }),
   });
 

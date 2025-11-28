@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { getOrCreateUserId } from "@/lib/client-id";
 import { fetchParkReviews, submitReview, toggleSavePark, voteOnReview } from "@/lib/park-api";
+import { useGoogleAuth } from "@/lib/use-google-auth";
 import type { NormalizedReview, ReviewSort, ThemePark, VoteValue } from "@/lib/types";
 
 const PAGE_SIZE = 6;
@@ -22,7 +22,6 @@ const sortLocally = (reviews: NormalizedReview[], sort: ReviewSort) => {
 
 const logInteraction = (event: string, payload: Record<string, unknown>) => {
   if (typeof window === "undefined") return;
-  // Lightweight analytics hook for future integration
   console.info(`[analytics] ${event}`, payload);
 };
 
@@ -39,6 +38,9 @@ const buildOfflineReviews = (park: ThemePark): NormalizedReview[] =>
     const createdAt =
       review.createdAt ??
       new Date(Date.now() - index * 86_400_000).toISOString();
+    const photos = Array.isArray(review.photos)
+      ? review.photos.filter((photo) => typeof photo === "string" && photo.trim().length > 0)
+      : [];
 
     return {
       id: review.id,
@@ -47,6 +49,7 @@ const buildOfflineReviews = (park: ThemePark): NormalizedReview[] =>
       authorInitials: review.authorInitials,
       rating: review.rating,
       text: review.text,
+      photos,
       visitDate: review.visitDate ?? null,
       createdAt,
       helpfulVotes: helpful,
@@ -60,7 +63,9 @@ export const useParkInteractions = (park: ThemePark) => {
   const reviewFormRef = useRef<HTMLDivElement>(null);
   const messageTimeoutRef = useRef<number | null>(null);
 
-  const [userId, setUserId] = useState<string | null>(null);
+  const { user, loading: authLoading, signIn, signOut, clientIdPresent } = useGoogleAuth();
+  const userId = user?.id ?? null;
+
   const [reviews, setReviews] = useState<NormalizedReview[]>(() =>
     sortLocally(buildOfflineReviews(park), "helpful")
   );
@@ -72,6 +77,7 @@ export const useParkInteractions = (park: ThemePark) => {
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const [visitDate, setVisitDate] = useState("");
   const [reviewText, setReviewText] = useState("");
+  const [photoPreviews, setPhotoPreviews] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
@@ -114,8 +120,6 @@ export const useParkInteractions = (park: ThemePark) => {
 
   const fetchPage = useCallback(
     async (targetPage: number, reset = false, nextSort: ReviewSort = sort) => {
-      if (!userId) return;
-
       const isLoadMore = targetPage > 1;
       if (isLoadMore) {
         setLoadingMore(true);
@@ -146,12 +150,6 @@ export const useParkInteractions = (park: ThemePark) => {
   );
 
   useEffect(() => {
-    const uid = getOrCreateUserId();
-    setUserId(uid);
-  }, []);
-
-  useEffect(() => {
-    if (!userId) return;
     void fetchPage(1, true, sort);
 
     return () => {
@@ -159,9 +157,15 @@ export const useParkInteractions = (park: ThemePark) => {
     };
   }, [fetchPage, sort, userId]);
 
-  const requireUser = () => {
+  const requireUser = (action: "review" | "vote" | "save") => {
     if (!userId) {
-      setTempMessage("Missing user session; reload the page.");
+      const message =
+        action === "review"
+          ? "Sign in with Google to post a review."
+          : action === "vote"
+            ? "Sign in with Google to vote."
+            : "Sign in with Google to save parks.";
+      setTempMessage(message);
       return false;
     }
     return true;
@@ -172,7 +176,7 @@ export const useParkInteractions = (park: ThemePark) => {
       setTempMessage("Add your story and a star rating before posting.");
       return;
     }
-    if (!requireUser()) return;
+    if (!requireUser("review")) return;
 
     setLoading(true);
     try {
@@ -183,19 +187,21 @@ export const useParkInteractions = (park: ThemePark) => {
         reviewText.trim(),
         selectedRating,
         visit,
-        { sort, page: 1, pageSize }
+        { sort, page: 1, pageSize, photos: photoPreviews }
       );
       applyPage(state, true);
       logInteraction("review_submit", {
         parkId: park.id,
         rating: selectedRating,
         visitDate: Boolean(visit),
+        photos: photoPreviews.length,
       });
       setTempMessage("Thanks for sharing your experience!");
       setSyncError(null);
       setSelectedRating(null);
       setVisitDate("");
       setReviewText("");
+      setPhotoPreviews([]);
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unable to post your review right now.";
@@ -210,7 +216,7 @@ export const useParkInteractions = (park: ThemePark) => {
       setTempMessage("You already voted!");
       return;
     }
-    if (!requireUser()) return;
+    if (!requireUser("vote")) return;
 
     const previous = reviews;
     setUserVotes((prev) => ({ ...prev, [reviewId]: vote }));
@@ -259,7 +265,7 @@ export const useParkInteractions = (park: ThemePark) => {
   };
 
   const handleSave = async () => {
-    if (!requireUser()) return;
+    if (!requireUser("save")) return;
 
     setLoading(true);
     try {
@@ -318,22 +324,50 @@ export const useParkInteractions = (park: ThemePark) => {
     setSort(nextSort);
   };
 
+  const handlePhotosSelected = async (files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    const maxPhotos = 6;
+    const fileArray = Array.from(files).slice(0, maxPhotos - photoPreviews.length);
+    const readers = await Promise.all(
+      fileArray.map(
+        (file) =>
+          new Promise<string | null>((resolve) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(file);
+          })
+      )
+    );
+    const nextPhotos = readers.filter((value): value is string => Boolean(value));
+    setPhotoPreviews((prev) => [...prev, ...nextPhotos].slice(0, maxPhotos));
+  };
+
+  const removePhoto = (index: number) => {
+    setPhotoPreviews((prev) => prev.filter((_, idx) => idx !== index));
+  };
+
   const totalPages = useMemo(() => Math.ceil(total / pageSize), [pageSize, total]);
 
   return {
     actionMessage,
+    authLoading,
     changeSort,
+    clientIdPresent,
     handleDirections,
     handleReviewSubmit,
     handleSave,
     handleShare,
+    handlePhotosSelected,
     handleVote,
     hasMore,
+    isLoggedIn: Boolean(userId),
     loading,
     loadingMore,
     loadMore,
     page,
     pageSize,
+    photoPreviews,
     reviewFormRef,
     reviewText,
     reviews,
@@ -342,11 +376,15 @@ export const useParkInteractions = (park: ThemePark) => {
     setReviewText,
     setSelectedRating,
     setVisitDate,
+    signIn,
+    signOut,
     sort,
     syncError,
     total,
     totalPages,
     userVotes,
     visitDate,
+    user,
+    removePhoto,
   };
 };

@@ -24,6 +24,7 @@ export function ReviewCard({ review, onVote, disabled }: ReviewCardProps) {
   const visitLabel = review.visitDate
     ? `Visited ${formatDate(review.visitDate)}`
     : `Posted ${formatDate(review.createdAt)}`;
+  const photos = review.photos ?? [];
 
   return (
     <div className="group relative overflow-hidden rounded-2xl border bg-card/80 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -51,6 +52,25 @@ export function ReviewCard({ review, onVote, disabled }: ReviewCardProps) {
       </div>
 
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{review.text}</p>
+
+      {photos.length > 0 && (
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          {photos.slice(0, 4).map((photo, index) => (
+            <div
+              key={`${review.id}-photo-${index}`}
+              className="relative overflow-hidden rounded-xl border bg-muted/40"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo}
+                alt={`Review photo ${index + 1}`}
+                className="h-28 w-full object-cover transition duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
         <div className="flex flex-wrap items-center gap-3">

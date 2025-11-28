@@ -24,13 +24,17 @@ const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sat
 export function ParkDetails({ park }: ParkDetailsProps) {
   const {
     actionMessage,
+    authLoading,
     changeSort,
+    clientIdPresent,
     handleDirections,
     handleReviewSubmit,
+    handlePhotosSelected,
     handleSave,
     handleShare,
     handleVote,
     hasMore,
+    isLoggedIn,
     loading,
     loadingMore,
     loadMore,
@@ -44,10 +48,15 @@ export function ParkDetails({ park }: ParkDetailsProps) {
     setReviewText,
     setSelectedRating,
     setVisitDate,
+    signIn,
+    signOut,
     sort,
     syncError,
     total,
     totalPages,
+    user,
+    photoPreviews,
+    removePhoto,
     visitDate,
   } = useParkInteractions(park);
   const loadMoreRef = useRef<HTMLDivElement>(null);
@@ -307,6 +316,20 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                       <Filter className="w-4 h-4" />
                       Newest
                     </Button>
+                    {isLoggedIn ? (
+                      <>
+                        <Badge variant="outline" className="gap-2">
+                          Signed in as {user?.name ?? "Google user"}
+                        </Badge>
+                        <Button variant="ghost" size="sm" onClick={signOut} disabled={authLoading}>
+                          Sign out
+                        </Button>
+                      </>
+                    ) : (
+                      <Button size="sm" onClick={signIn} disabled={authLoading}>
+                        {clientIdPresent ? "Sign in with Google" : "Use Google (demo)"}
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardHeader>
@@ -369,13 +392,55 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                     <h3 className="font-semibold">Share your experience</h3>
                     <Badge variant="outline">Earn helpful votes</Badge>
                   </div>
+                  {!isLoggedIn && (
+                    <div className="mb-3 flex flex-wrap items-center gap-3 rounded-lg border border-dashed bg-background px-3 py-2 text-sm text-muted-foreground">
+                      <span>Sign in with Google to post a review.</span>
+                      <Button size="sm" onClick={signIn} disabled={authLoading}>
+                        {clientIdPresent ? "Sign in with Google" : "Use Google (demo)"}
+                      </Button>
+                    </div>
+                  )}
                   <Textarea
                     placeholder="Tell others about your visit to this park..."
                     className="mb-3"
                     rows={4}
                     value={reviewText}
                     onChange={(event) => setReviewText(event.target.value)}
+                    disabled={!isLoggedIn || loading}
                   />
+                  <div className="mb-3 flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium text-muted-foreground">
+                        Add photos (up to 6)
+                      </label>
+                      <Input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={(event) => handlePhotosSelected(event.target.files)}
+                        disabled={!isLoggedIn || loading}
+                        className="max-w-xs"
+                      />
+                    </div>
+                    {photoPreviews.length > 0 && (
+                      <div className="grid grid-cols-3 gap-2">
+                        {photoPreviews.map((photo, index) => (
+                          <div key={photo} className="relative overflow-hidden rounded-xl border bg-background">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={photo} alt={`Upload ${index + 1}`} className="h-24 w-full object-cover" />
+                            <button
+                              type="button"
+                              className="absolute right-2 top-2 rounded-full bg-black/70 px-2 py-0.5 text-xs text-white"
+                              onClick={() => removePhoto(index)}
+                              aria-label="Remove photo"
+                            >
+                              ✕
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                   <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                     <div className="flex flex-wrap items-center gap-3">
                       <div className="flex gap-1">
@@ -386,6 +451,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                             aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
                             aria-pressed={selectedRating === star}
                             onClick={() => setSelectedRating(star)}
+                            disabled={!isLoggedIn || loading}
                           >
                             <Star
                               className={`w-6 h-6 cursor-pointer hover:fill-amber-400 hover:text-amber-400 transition-colors ${
@@ -403,9 +469,10 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                         onChange={(event) => setVisitDate(event.target.value)}
                         className="w-48"
                         aria-label="Visit date"
+                        disabled={!isLoggedIn || loading}
                       />
                     </div>
-                    <Button onClick={handleReviewSubmit} disabled={loading}>
+                    <Button onClick={handleReviewSubmit} disabled={loading || !isLoggedIn}>
                       {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                       Post Review
                     </Button>
@@ -474,7 +541,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
                   className="w-full"
                   size="lg"
                   onClick={handleSave}
-                  disabled={loading}
+                  disabled={loading || !isLoggedIn}
                 >
                   {saved ? "Saved" : "Save for Later"}
                 </Button>

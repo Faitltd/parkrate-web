@@ -2,7 +2,14 @@ import { promises as fs } from "fs";
 import path from "path";
 import { findParkById } from "./parks";
 import { themeParks } from "./data";
-import type { NormalizedReview, Review, ReviewPage, ReviewSort, ThemePark, VoteValue } from "./types";
+import type {
+  NormalizedReview,
+  Review,
+  ReviewPage,
+  ReviewSort,
+  ThemePark,
+  VoteValue,
+} from "./types";
 
 type ParkState = {
   reviews: Review[];
@@ -85,6 +92,9 @@ const normalizeReviewShape = (review: Review, parkId: string): Review => {
     typeof review.visitDate === "string" && review.visitDate.trim().length > 0
       ? review.visitDate
       : null;
+  const photos = Array.isArray(review.photos)
+    ? review.photos.filter((url) => typeof url === "string" && url.trim().length > 0)
+    : [];
 
   return {
     ...review,
@@ -94,6 +104,7 @@ const normalizeReviewShape = (review: Review, parkId: string): Review => {
     text: review.text ?? "",
     createdAt: review.createdAt ?? parseDateString(review.date, review.id),
     visitDate,
+    photos,
     helpfulVotes:
       typeof review.helpfulVotes === "number"
         ? review.helpfulVotes
@@ -197,6 +208,7 @@ const hydrateReview = (
     authorInitials: normalized.authorInitials,
     rating: normalized.rating,
     text: normalized.text,
+    photos: normalized.photos ?? [],
     visitDate: normalized.visitDate ?? null,
     createdAt: normalized.createdAt ?? new Date().toISOString(),
     helpfulVotes,
@@ -308,6 +320,7 @@ export const createReview = async (
     rating: number;
     visitDate?: string | null;
     userName?: string | null;
+    photos?: string[];
   },
   options: { sort?: ReviewSort; page?: number; pageSize?: number } = {}
 ) => {
@@ -338,6 +351,9 @@ export const createReview = async (
     createdAt: new Date().toISOString(),
     helpfulVotes: 0,
     unhelpfulVotes: 0,
+    photos: Array.isArray(input.photos)
+      ? input.photos.filter((photo) => typeof photo === "string" && photo.trim().length > 0)
+      : [],
   };
 
   state.reviews = [newReview, ...state.reviews];

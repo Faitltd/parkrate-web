@@ -51,6 +51,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     visitDate?: string;
     user?: string;
     userName?: string;
+    photos?: string[];
     sort?: ReviewSort;
     page?: number;
     pageSize?: number;
@@ -64,6 +65,12 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const userName = (payload.user ?? payload.userName ?? "").trim() || undefined;
   const visitDateRaw = (payload.visit_date ?? payload.visitDate ?? "").trim();
   const visitDate = visitDateRaw ? new Date(visitDateRaw).toISOString().slice(0, 10) : null;
+  const photos =
+    Array.isArray(payload.photos) && payload.photos.length > 0
+      ? payload.photos
+          .slice(0, 6)
+          .filter((photo) => typeof photo === "string" && photo.trim().length > 0)
+      : [];
 
   if (!text || Number.isNaN(rating) || rating < 1 || rating > 5) {
     return NextResponse.json(
@@ -75,7 +82,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   try {
     const result = await createReview(
       parkId,
-      { userId, text, rating, visitDate, userName },
+      { userId, text, rating, visitDate, userName, photos },
       { sort, page, pageSize }
     );
 
