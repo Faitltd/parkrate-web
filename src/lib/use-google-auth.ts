@@ -85,6 +85,8 @@ export const useGoogleAuth = () => {
               }
             }
           },
+          // Avoid FedCM prompt issues; fall back to the classic popup flow.
+          use_fedcm_for_prompt: false,
         });
         setGoogleReady(true);
       } catch (error) {
