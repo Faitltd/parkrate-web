@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,14 +62,24 @@ export default function MapPage() {
                     .map((park) => (
                       <Link key={park.id} href={`/park/${park.id}`}>
                         <Card className="h-full cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                          <div className="relative h-32 overflow-hidden bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 rounded-t-2xl">
-                            <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                              <MapPin className="w-24 h-24 text-white fill-white" />
-                            </div>
-                            <div className="absolute top-3 right-3">
+                          <div className="relative h-36 overflow-hidden rounded-t-2xl">
+                            <Image
+                              src={park.image}
+                              alt={park.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                              priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                            <div className="absolute inset-0 flex items-start justify-between p-3">
                               <Badge className="bg-white/90 text-black hover:bg-white">
                                 {park.priceRange}
                               </Badge>
+                              <div className="flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
+                                <MapPin className="w-3.5 h-3.5" />
+                                {park.location}
+                              </div>
                             </div>
                           </div>
 
