@@ -26,7 +26,7 @@ export default function Home() {
   const hasActiveFilters = filters.audience !== "all" || filters.parkType !== "all";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen page-surface">
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">

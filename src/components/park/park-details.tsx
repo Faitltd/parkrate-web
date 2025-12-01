@@ -119,7 +119,7 @@ export function ParkDetails({ park }: ParkDetailsProps) {
   }, [hasMore, loadMore, loadingMore]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen page-surface">
       <Script
         id={`park-schema-${park.id}`}
         type="application/ld+json"
