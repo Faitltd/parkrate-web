@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { Search, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,8 @@ import { themeParks } from "@/lib/data";
 import { getFilteredAndSortedParks } from "@/lib/parks";
 import type { ParkFilters, SortOption } from "@/lib/parks";
 
+const PAGE_SIZE = 12;
+
 export default function Home() {
   const [filters, setFilters] = useState<ParkFilters>({
     searchTerm: "",
@@ -17,13 +20,20 @@ export default function Home() {
     parkType: "all",
   });
   const [sortBy, setSortBy] = useState<SortOption>("rating-high");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filteredAndSortedParks = useMemo(
     () => getFilteredAndSortedParks(themeParks, filters, sortBy),
     [filters, sortBy]
   );
 
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [filters]);
+
   const hasActiveFilters = filters.audience !== "all" || filters.parkType !== "all";
+  const visibleParks = filteredAndSortedParks.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredAndSortedParks.length;
 
   return (
     <div className="min-h-screen page-surface">
@@ -66,7 +76,10 @@ export default function Home() {
             onSearchTermChange={(value) => setFilters((prev) => ({ ...prev, searchTerm: value }))}
             onAudienceChange={(value) => setFilters((prev) => ({ ...prev, audience: value }))}
             onParkTypeChange={(value) => setFilters((prev) => ({ ...prev, parkType: value }))}
-            onSortChange={setSortBy}
+            onSortChange={(value) => {
+              setVisibleCount(PAGE_SIZE);
+              setSortBy(value);
+            }}
             onClearFilters={() =>
               setFilters((prev) => ({ ...prev, audience: "all", parkType: "all" }))
             }
@@ -89,10 +102,18 @@ export default function Home() {
 
         {/* Parks Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAndSortedParks.map((park) => (
+          {visibleParks.map((park) => (
             <ParkCard key={park.id} park={park} />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="flex justify-center mt-10">
+            <Button size="lg" variant="secondary" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
+              Load more parks
+            </Button>
+          </div>
+        )}
 
         {/* No Results */}
         {filteredAndSortedParks.length === 0 && (

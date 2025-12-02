@@ -82,6 +82,21 @@ export function ParkDetails({ park }: ParkDetailsProps) {
       "@type": "Place",
       name: park.location,
     },
+    review: park.reviews.slice(0, 5).map((review) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: review.author,
+      },
+      reviewBody: review.text,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: review.rating,
+        bestRating: "5",
+        worstRating: "1",
+      },
+      datePublished: review.createdAt || review.date || new Date().toISOString(),
+    })),
     openingHoursSpecification: parsedHours
       ? daysOfWeek.map((day) => ({
           "@type": "OpeningHoursSpecification",
