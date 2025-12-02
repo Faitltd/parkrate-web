@@ -12,15 +12,15 @@ interface ParkCardProps {
 export function ParkCard({ park }: ParkCardProps) {
   return (
     <Link href={`/park/${park.id}`}>
-      <Card className="h-full cursor-pointer overflow-hidden">
-        <div className="relative h-48 overflow-hidden">
+      <Card className="h-full cursor-pointer overflow-hidden shadow-md sm:shadow-lg border border-border/80 sm:border-border hover:shadow-xl hover:border-primary/20">
+        <div className="relative w-full aspect-[4/3] max-h-[240px] md:max-h-none md:h-48 overflow-hidden">
           <img
             src={park.image}
             alt={park.name}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-          />
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
           <div className="absolute top-3 right-3 z-10">
             <Badge className="bg-white/90 text-black hover:bg-white">
               {park.priceRange}
